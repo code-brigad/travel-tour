@@ -1,3 +1,6 @@
 {
-    "hello": "Salom"
+    "header": {
+        "directory": "Yo'nalishlar",
+        "help": "Yordam"
+    }
 }

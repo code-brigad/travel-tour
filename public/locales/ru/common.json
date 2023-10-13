@@ -1,3 +1,6 @@
 {
-    "hello": "Privet"
+    "header": {
+        "directory": "Направления",
+        "help": "Помощь"
+    }
 }

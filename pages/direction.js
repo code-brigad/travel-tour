@@ -1,11 +1,8 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { poppins } from '@/public/assets/fonts'
 
-export default function Home() {
+const Direction = () => {
   return (
-    <section className={poppins.className}>
-      <h1>text</h1>
-    </section>
+    <div>Direction</div>
   )
 }
 
@@ -18,3 +15,5 @@ export async function getStaticProps({ locale }) {
     },
   }
 }
+
+export default Direction

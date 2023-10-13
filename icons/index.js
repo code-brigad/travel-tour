@@ -1,0 +1,7 @@
+export { default as IconPlane } from "./Plane"
+export { default as IconHelp } from "./Help"
+export { default as IconLang } from "./Lang"
+export { default as IconCheck } from "./Check"
+export { default as IconMenu } from "./Menu"
+export { default as IconArrowBottom } from "./ArrowBottom"
+export { default as IconClose } from "./Close"
