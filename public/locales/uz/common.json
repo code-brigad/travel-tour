@@ -2,5 +2,23 @@
     "header": {
         "directory": "Yo'nalishlar",
         "help": "Yordam"
+    },
+    "hero": {
+        "tab": {
+            "paket": "tur paket",
+            "hotel": "mehmonxona"
+        },
+        "paket": {
+            "title": "Qayerga uchamiz?",
+            "desc": "Ma’lumotlarni to’ldiring va o’zingiz uchun qulayini tanlang",
+            "btn": "topish",
+            "input": {
+                "where": "Qayerdan",
+                "where2": "Qayerga",
+                "go": "Qachon",
+                "back": "Qaytish",
+                "passenger": "Yo'lovchi"
+            }
+        }
     }
 }

@@ -13,3 +13,11 @@
     @apply max-w-[1200px] mx-auto px-4;
   }
 }
+
+.type[data-type-changed="paket"] {
+  @apply justify-start
+}
+
+.type div[data-type-changed="hotel"] {
+  @apply w-[140px]
+}

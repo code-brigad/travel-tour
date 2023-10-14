@@ -34,7 +34,7 @@ const Navbar = () => {
   const { t } = useTranslation("common");
   return (
     <motion.nav
-      className="bg-main fixed w-full text-white"
+      className="bg-main fixed w-full z-30 text-white"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "linear", duration: 0.2 }}
@@ -49,7 +49,7 @@ const Navbar = () => {
               <li key={link.id} className="sm:block hidden">
                 <Link
                   href={link.link}
-                  className="font-medium p-2 rounded-[5px] hover:bg-white/10 transition-colors duration-500 flex flex-row items-center gap-2"
+                  className="font-regular p-2 rounded-[5px] hover:bg-white/10 transition-colors duration-500 flex flex-row items-center gap-2"
                 >
                   {t(link.name)}
                 </Link>
@@ -107,7 +107,7 @@ export const Mobile = ({ menuOpen, setMenuOpen }) => {
               stiffness: 500,
               duration: 0.2,
             }}
-            className="sm:hidden block absolute top-0 left-0 z-10 bg-main max-w-[330px] w-full h-screen py-6"
+            className="sm:hidden block absolute top-0 left-0 z-40 bg-main max-w-[330px] w-full h-screen py-6"
           >
             <div className="px-4 flex flex-row items-center justify-between mb-6">
               <ChangeLangMobile />
