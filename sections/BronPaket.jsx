@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const BronPaket = () => {
   const { t } = useTranslation("common");
   const classes =
-    "py-6 px-3 text-black focus:ring-2 focus:ring-secondary bg-white outline-none transition-all duration-300";
+    "py-6 px-3 text-black focus:ring-2 focus:ring-secondary bg-white outline-none transition-all duration-300 capitalize";
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="grid w-full xl:grid-cols-5 grid-cols-4 xl:grid-rows-1 grid-rows-3 gap-[0.15rem]">
@@ -35,7 +35,7 @@ const BronPaket = () => {
           placeholder={t("hero.paket.input.passenger")}
         />
       </div>
-      <motion.button className="text-center py-2 bg-secondary px-6 uppercase rounded-md">{t('hero.btn')}</motion.button>
+      <motion.button whileHover={{ scale: 1.1 }} className="text-center py-2 bg-secondary px-6 uppercase rounded-md">{t('hero.btn')}</motion.button>
     </div>
   );
 };

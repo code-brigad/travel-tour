@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { BronHotel, BronPaket } from ".";
+import { young_serif } from "@/public/assets/fonts";
 
 const Hero = () => {
   const { t } = useTranslation("common");
@@ -15,7 +16,7 @@ const Hero = () => {
         {searchType == "paket" ? (
           <>
             <AnimatedHeader
-              className="text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px]"
+              className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${young_serif.className}`}
               text={t("hero.paket.title")}
             />
             <p className="text-center font-regular">{t("hero.paket.desc")}</p>
@@ -24,7 +25,7 @@ const Hero = () => {
         ) : (
           <>
             <AnimatedHeader
-              className="text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px]"
+              className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${young_serif.className}`}
               text={"Mehmonxona"}
             />
             <p className="text-center font-regular">{t("hero.paket.desc")}</p>
