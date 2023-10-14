@@ -1,8 +1,9 @@
-import { AnimatePresence } from "framer-motion";
+import { IconCheck } from "@/icons";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import { useTranslation, motion } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const lng = [
   {
@@ -42,7 +43,7 @@ export const ChangeLang = ({ open, setOpen }) => {
                 stiffness: 500,
                 duration: 0.2,
               }}
-              className="absolute left-[-88px] top-[50px] text-black bg-white py-4 rounded-lg shadow-lg   before:absolute before:block before:w-[14px] before:h-[14px] before:rotate-45 before:bg-white before:top-[-7px] before:left-[50%] before:translate-x-[-50%] before:z-[-1]"
+              className="absolute right-[0px] top-[40px] text-black bg-white py-4 rounded-lg shadow-lg "
             >
               <ul className="flex flex-col">
                 {lng.map((data) => {

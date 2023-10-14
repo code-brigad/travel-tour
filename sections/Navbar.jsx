@@ -49,7 +49,7 @@ const Navbar = () => {
               <li key={link.id} className="sm:block hidden">
                 <Link
                   href={link.link}
-                  className="font-medium uppercase p-2 rounded-[5px] hover:bg-white/10 transition-colors duration-500 flex flex-row items-center gap-2"
+                  className="font-medium p-2 rounded-[5px] hover:bg-white/10 transition-colors duration-500 flex flex-row items-center gap-2"
                 >
                   {t(link.name)}
                 </Link>
