@@ -26,18 +26,18 @@ const AnimatedHeader = ({ text, Tag = "h1", className }) => {
         animate={isInView ? "visible" : "hidden"}
         transition={{ staggerChildren: 0.1 }}
       >
-        {text.split(" ").map((word) => (
-          <span key={word} className="inline-block">
-            {word.split("").map((char) => (
+        {text.split(" ").map((word, i) => (
+          <span key={i} className="inline-block">
+            {word.split("").map((char, i) => (
               <motion.span
-                key={char}
+                key={i}
                 variants={defaultAnimations}
                 className="inline-block"
               >
                 {char}
               </motion.span>
             ))}
-            <span className="inline-block">&nbsp;</span>
+            <span className="sm:inline-block hidden">&nbsp;</span>
           </span>
         ))}
       </motion.span>

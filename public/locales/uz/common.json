@@ -8,16 +8,26 @@
             "paket": "tur paket",
             "hotel": "mehmonxona"
         },
+        "btn": "topish",
         "paket": {
             "title": "Qayerga uchamiz?",
             "desc": "Ma’lumotlarni to’ldiring va o’zingiz uchun qulayini tanlang",
-            "btn": "topish",
             "input": {
                 "where": "Qayerdan",
                 "where2": "Qayerga",
                 "go": "Qachon",
                 "back": "Qaytish",
                 "passenger": "Yo'lovchi"
+            }
+        },
+        "hotel": {
+            "title": "Mehmonxona",
+            "desc": "booking.com saytidan mehmonxona bron qilish",
+            "input": {
+                "city": "Shahar yoki mehmonxona",
+                "go": "Kelish",
+                "back": "Ketish",
+                "guest": "mehmonlar"
             }
         }
     }

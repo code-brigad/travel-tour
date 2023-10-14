@@ -28,14 +28,14 @@ const UserSearchType = ({ searchType, setSearchType }) => {
             transition={{ type: "spring", stiffness: 700, damping: 70 }}
             layout
             data-type-changed={searchType}
-            className="w-[100px] h-full bg-white rounded-md z-20"
+            className="w-[140px] h-full bg-white rounded-md z-20"
           ></motion.div>
         </li>
         {types.map((type) => {
           return (
             <li
               key={type.id}
-              className={`py-1 px-2 uppercase z-20 cursor-pointer ${
+              className={`py-1 px-2 w-[140px] text-center uppercase z-20 cursor-pointer ${
                 searchType == type.value ? "font-bold text-main" : "text-white"
               }`}
               onClick={() => setSearchType(type.value)}

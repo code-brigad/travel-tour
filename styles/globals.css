@@ -21,3 +21,8 @@
 .type div[data-type-changed="hotel"] {
   @apply w-[140px]
 }
+
+.bg-cube {
+  background-image: linear-gradient(#ffffff14 .1em, transparent .1em), linear-gradient(90deg, #ffffff14 .1em, transparent .1em);
+  background-size: 3em 3em;
+}

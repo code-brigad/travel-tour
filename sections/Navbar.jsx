@@ -34,7 +34,7 @@ const Navbar = () => {
   const { t } = useTranslation("common");
   return (
     <motion.nav
-      className="bg-main fixed w-full z-30 text-white"
+      className="bg-main bg-cube fixed w-full z-30 text-white"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "linear", duration: 0.2 }}
