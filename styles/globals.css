@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply m-0 p-0 box-border overflow-x-hidden font-normal bg-white;
+    @apply m-0 p-0 box-border overflow-x-hidden font-normal font-sans bg-white;
   }
 }
 
@@ -25,4 +25,41 @@
 .bg-cube {
   background-image: linear-gradient(#ffffff14 .1em, transparent .1em), linear-gradient(90deg, #ffffff14 .1em, transparent .1em);
   background-size: 3em 3em;
+}
+
+.ant-picker {
+  @apply xl:rounded-l-none rounded-l-[10px] xl:col-span-1 col-span-2 col-start-1 xl:row-auto row-start-3 hover:border-none border-none
+}
+
+.ant-picker-input {
+  @apply xl:rounded-l-none rounded-l-[10px] py-6 px-3 !text-black bg-white outline-none transition-all duration-300 capitalize
+}
+
+.ant-picker input {
+  @apply font-medium placeholder:!opacity-100
+}
+
+.ant-picker-clear {
+  @apply !right-[12px]
+}
+
+.ant-picker-focused .ant-picker-input {
+  @apply ring-2 ring-secondary
+}
+
+/* back date styles */
+.back-date {
+  @apply xl:rounded-r-none rounded-r-[10px] rounded-l-none xl:col-span-1 col-span-2 xl:row-auto row-start-3
+}
+
+.back-date .ant-picker-input {
+  @apply xl:rounded-r-none rounded-r-[10px] rounded-l-none py-6 px-3 !text-black bg-white outline-none transition-all duration-300 capitalize
+}
+
+.back-date .ant-picker input {
+  @apply font-medium placeholder:!opacity-100
+}
+
+.ant-picker-today-btn {
+  @apply hidden
 }

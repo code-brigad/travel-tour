@@ -1,6 +1,6 @@
-import { Young_Serif, Poppins } from 'next/font/google'
+import { Poppins, Righteous } from 'next/font/google'
 
-export const young_serif = Young_Serif({
+export const young_serif = Righteous({
     weight: ["400"],
     subsets: ["latin"],
 })
