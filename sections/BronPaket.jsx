@@ -18,6 +18,11 @@ const BronPaket = () => {
     open: false,
   });
 
+  const [passenger, setPassenger] = useState({
+    value: 1,
+    open: false,
+  });
+
   const whereData = getCountriesApi(where.value);
   const whereData2 = getCountriesApi(where2.value);
   const handleGetGoDate = (date, dateString) => {
@@ -54,7 +59,9 @@ const BronPaket = () => {
           {where.value.length !== 0 && (
             <>
               <svg
-              onClick={() => setWhere({ value: '', selected: '', open: false })}
+                onClick={() =>
+                  setWhere({ value: "", selected: "", open: false })
+                }
                 className="clear cursor-pointer inline z-40 absolute top-[50%] right-[14px] fill-gray-400 translate-y-[-50%]"
                 fill-rule="evenodd"
                 viewBox="64 64 896 896"
@@ -71,10 +78,16 @@ const BronPaket = () => {
             {whereData.countries.length > 0 &&
             where.selected !== where.value ? (
               <>
-                <motion.ul className="absolute top-[76px] left-0 bg-white sm:w-[300px] w-full rounded-[8px] text-black flex flex-col shadow-lg z-30">
+                <motion.ul
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.1 }}
+                  className="absolute top-[76px] left-0 bg-white sm:w-[300px] w-full rounded-[8px] text-black flex flex-col shadow-lg z-30"
+                >
                   {whereData.countries.map((country) => {
                     return (
-                      <li
+                      <motion.li
                         key={country.id}
                         className="p-3 flex flex-row last:border-b-[0px] items-center gap-2 truncate border-b cursor-pointer hover:bg-main/10"
                         onClick={() =>
@@ -91,7 +104,7 @@ const BronPaket = () => {
                         <p className="text-[14px] opacity-50">
                           {country.country_name}
                         </p>
-                      </li>
+                      </motion.li>
                     );
                   })}
                 </motion.ul>
@@ -118,7 +131,9 @@ const BronPaket = () => {
           {where2.value.length !== 0 && (
             <>
               <svg
-              onClick={() => setWhere2({ value: '', selected: '', open: false })}
+                onClick={() =>
+                  setWhere2({ value: "", selected: "", open: false })
+                }
                 className="clear2 cursor-pointer inline z-40 absolute top-[50%] right-[14px] fill-gray-400 translate-y-[-50%]"
                 fill-rule="evenodd"
                 viewBox="64 64 896 896"
@@ -180,11 +195,63 @@ const BronPaket = () => {
             </button>
           )}
         />
-        <input
-          type="text"
-          className={`${classes} rounded-r-[10px] xl:rounded-l-none rounded-l-[10px] xl:col-span-1 col-span-4 col-start-1 xl:row-auto row-start-4`}
-          placeholder={t("hero.paket.input.passenger")}
-        />
+        <div className="xl:col-span-1 col-span-4 col-start-1 xl:row-auto row-start-4 relative">
+          <div
+            className={`${classes} rounded-r-[10px] xl:rounded-l-none rounded-l-[10px] flex flex-row items-center justify-between h-full w-full`}
+            onClick={() =>
+              setPassenger({ value: passenger.value, open: !passenger.open })
+            }
+          >
+            <div
+              className="p-[2px] bg-gray-400 rounded-full cursor-pointer"
+              onClick={() => setPassenger({ value: (passenger.value -= 1) })}
+            >
+              <svg
+                className="fill-white"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18px"
+                height="18px"
+                fill="none"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  className="stroke-white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 12h12"
+                ></path>
+              </svg>
+            </div>
+            <p>
+              {passenger.value} {t("hero.paket.input.passenger")}
+            </p>
+            <div
+              className="p-[2px] bg-main rounded-full cursor-pointer"
+              onClick={() => setPassenger({ value: (passenger.value += 1) })}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18px"
+                height="18px"
+                fill="none"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                color="#000000"
+              >
+                <path
+                  stroke="#000000"
+                  className="stroke-white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 12h6m6 0h-6m0 0V6m0 6v6"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
       <motion.button
         whileHover={{ scale: 1.1 }}
