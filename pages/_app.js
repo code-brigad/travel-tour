@@ -16,7 +16,8 @@ function App({ Component, pageProps }) {
             activeShadow: 'none',
             borderRadius: '0',
             hoverBg: '#fff',
-            fontSize: '16px'
+            fontSize: '16px',
+            cellWidth: 40
           },
         },
       }}

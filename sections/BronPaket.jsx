@@ -36,10 +36,15 @@ const BronPaket = () => {
           placeholder={t("hero.paket.input.go")}
         />
         <DatePicker
+        rootClassName="back-date"
           className="back-date"
           onChange={handleGetBackDate}
           placeholder={t("hero.paket.input.back")}
-          renderExtraFooter={() => 'Qaytish uchun chipta kerak emas'}
+          renderExtraFooter={() => (
+            <button onClick={() => console.log("work")}>
+              Qaytish uchun chipta kerak emas
+            </button>
+          )}
         />
         <input
           type="text"
