@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { AnimatePresence, motion } from "framer-motion";
 import { DatePicker } from "antd";
@@ -18,10 +18,7 @@ const BronPaket = () => {
     open: false,
   });
 
-  const [passenger, setPassenger] = useState({
-    value: 1,
-    open: false,
-  });
+  var [passenger, setPassenger] = useState(1);
 
   const whereData = getCountriesApi(where.value);
   const whereData2 = getCountriesApi(where2.value);
@@ -35,6 +32,14 @@ const BronPaket = () => {
   const classes =
     "py-6 px-3 text-black focus:ring-2 focus:ring-secondary bg-white outline-none transition-all duration-300 capitalize placeholder:opacity-80";
 
+  useEffect(() => {
+    if (passenger < 2) {
+      setPassenger(1);
+    }
+    if (passenger >= 20) {
+      setPassenger(20);
+    }
+  }, [passenger]);
   return (
     <motion.div
       initial={{ scale: 0 }}
@@ -198,13 +203,10 @@ const BronPaket = () => {
         <div className="xl:col-span-1 col-span-4 col-start-1 xl:row-auto row-start-4 relative">
           <div
             className={`${classes} rounded-r-[10px] xl:rounded-l-none rounded-l-[10px] flex flex-row items-center justify-between h-full w-full`}
-            onClick={() =>
-              setPassenger({ value: passenger.value, open: !passenger.open })
-            }
           >
             <div
               className="p-[2px] bg-gray-400 rounded-full cursor-pointer"
-              onClick={() => setPassenger({ value: (passenger.value -= 1) })}
+              onClick={() => setPassenger((passenger -= 1))}
             >
               <svg
                 className="fill-white"
@@ -225,11 +227,11 @@ const BronPaket = () => {
               </svg>
             </div>
             <p>
-              {passenger.value} {t("hero.paket.input.passenger")}
+              {passenger} {t("hero.paket.input.passenger")}
             </p>
             <div
               className="p-[2px] bg-main rounded-full cursor-pointer"
-              onClick={() => setPassenger({ value: (passenger.value += 1) })}
+              onClick={() => setPassenger((passenger += 1))}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
