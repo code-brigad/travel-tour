@@ -36,7 +36,7 @@
 }
 
 .ant-picker input {
-  @apply font-medium placeholder:!opacity-100
+  @apply font-normal placeholder:!opacity-100
 }
 
 .ant-picker-clear {
@@ -57,7 +57,7 @@
 }
 
 .back-date .ant-picker input {
-  @apply font-medium placeholder:!opacity-100
+  @apply font-normal placeholder:!opacity-100
 }
 
 .back-date .ant-picker-today-btn {
@@ -70,4 +70,12 @@
 
 .back-date .ant-picker-footer-extra {
   @apply flex items-center justify-center
+}
+
+.input .clear, .input2 .clear2 {
+  @apply hidden
+}
+
+.input:hover .clear, .input2:hover .clear2 {
+  @apply block 
 }
