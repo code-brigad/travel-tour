@@ -79,3 +79,7 @@
 .input:hover .clear, .input2:hover .clear2 {
   @apply block 
 }
+
+.ant-image .ant-image-mask:hover {
+  @apply rounded-[14px]
+}

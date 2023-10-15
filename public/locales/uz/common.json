@@ -31,6 +31,11 @@
             }
         }
     },
+    "cpecial": {
+        "title": "maxsus tur paketlar",
+        "desc": "Eng qulay va arzon “tur paketlar” jamlanmasi",
+        "btn": "Ko'proq"
+    },
     "footer": {
         "paket": "Tur paket tayyorlash",
         "special": "Maxsus tur paketlar",
