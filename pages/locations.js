@@ -32,9 +32,10 @@ const Locations = () => {
         <div className='flex flex-col gap-1 w-full md:h-full h-[200px] bg-main/[0.03] border rounded-[10px]'>
           <h1 className='uppercase font-semibold text-[20px] p-2'>{t('locations.location')}</h1>
           <div className='w-full border-b'></div>
-          <div className='p-2'>
-            <p className='mb-1'><span className='text-main'>{t('locations.adress')}</span>: {t('locations.location')}</p>
+          <div className='p-2 flex flex-col gap-2'>
+            <p className=''><span className='text-main'>{t('locations.adress')}</span>: {t('locations.location')}</p>
             <p><span className='text-main'>{t('locations.phone')}</span>: <a href="tel: +998900000000">+998 90 000 00 00</a></p>
+            <p><span className='text-main'>{t('about.info6')}:</span> info@site.uz</p>
           </div>
         </div>
         <YMaps>
