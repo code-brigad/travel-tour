@@ -6,7 +6,7 @@ import { poppins } from "@/public/assets/fonts";
 const Footer = () => {
   const { t, i18n } = useTranslation("common");
   return (
-    <footer className={`border-t py-8 ${poppins.className}`}>
+    <footer className={`border-t pt-8 ${poppins.className}`}>
       <div className="flex w-full flex-col items-center gap-6 mb-6">
         <ul className="flex sm:flex-row flex-col text-center gap-2">
           <li className="text-[14px] hover:text-main">

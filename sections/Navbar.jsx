@@ -1,13 +1,15 @@
-import { young_serif } from "@/public/assets/fonts";
+import { poppins, young_serif } from "@/public/assets/fonts";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import {
   IconArrowBottom,
+  IconBaloon,
   IconClose,
-  IconHelp,
+  IconInfo,
   IconLang,
+  IconLocation,
   IconMenu,
   IconPlane,
 } from "@/icons";
@@ -22,9 +24,21 @@ const links = [
   },
   {
     id: 2,
-    link: "/info",
-    icon: IconHelp,
+    link: "/special",
+    icon: IconBaloon,
     name: "header.help",
+  },
+  {
+    id: 3,
+    link: "/locations",
+    icon: IconLocation,
+    name: "header.location"
+  },
+  {
+    id: 3,
+    link: "/about",
+    icon: IconInfo,
+    name: "header.about"
   },
 ];
 
@@ -34,7 +48,7 @@ const Navbar = () => {
   const { t } = useTranslation("common");
   return (
     <motion.nav
-      className="bg-main bg-cube fixed w-full z-30 text-white"
+      className={`bg-main bg-cube fixed w-full z-30 text-white ${poppins.className}`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "linear", duration: 0.2 }}
@@ -43,10 +57,10 @@ const Navbar = () => {
         <Link href={"/"} className={`${young_serif.className}`}>
           Sayohat
         </Link>
-        <ul className="flex flex-row items-center gap-3">
+        <ul className="flex flex-row items-center gap-2">
           {links.map((link) => {
             return (
-              <li key={link.id} className="sm:block hidden">
+              <li key={link.id} className="md:block hidden">
                 <Link
                   href={link.link}
                   className="font-regular p-2 rounded-[5px] hover:bg-white/10 transition-colors duration-500 flex flex-row items-center gap-2"
@@ -56,7 +70,7 @@ const Navbar = () => {
               </li>
             );
           })}
-          <li className="relative sm:block hidden">
+          <li className="relative md:block hidden">
             <div
               className={`hover:bg-white/10 rounded-[5px] p-2 cursor-pointer transition-colors duration-500 flex flex-row gap-1 ${
                 open == true ? "bg-white/10" : ""
@@ -75,7 +89,7 @@ const Navbar = () => {
             <ChangeLang open={open} setOpen={setOpen} />
           </li>
           <li
-            className="sm:hidden block hover:bg-white/10 rounded-[5px] p-2 cursor-pointer transition-colors duration-500"
+            className="md:hidden block hover:bg-white/10 rounded-[5px] p-2 cursor-pointer transition-colors duration-500"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <IconMenu />
@@ -107,7 +121,7 @@ export const Mobile = ({ menuOpen, setMenuOpen }) => {
               stiffness: 500,
               duration: 0.2,
             }}
-            className="sm:hidden block absolute top-0 left-0 z-40 bg-main max-w-[330px] w-full h-screen py-6"
+            className="md:hidden block absolute top-0 left-0 z-40 bg-main max-w-[330px] w-full h-screen py-6"
           >
             <div className="px-4 flex flex-row items-center justify-between mb-6">
               <ChangeLangMobile />

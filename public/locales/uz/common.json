@@ -1,7 +1,9 @@
 {
     "header": {
         "directory": "Yo'nalishlar",
-        "help": "Yordam"
+        "help": "Maxsus Tur Paketlar",
+        "location": "Joylashuv",
+        "about": "Kompaniya haqida"
     },
     "hero": {
         "tab": {
@@ -35,6 +37,13 @@
         "title": "maxsus tur paketlar",
         "desc": "Eng qulay va arzon “tur paketlar” jamlanmasi",
         "btn": "Ko'proq"
+    },
+    "locations": {
+        "title": "Manzillarimiz",
+        "pageTitle": "Bizning manzillarimiz",
+        "location": "Toshkent viloyati, Bekobod shahar",
+        "adress": "Manzil",
+        "phone": "Bog'lanish"
     },
     "footer": {
         "paket": "Tur paket tayyorlash",

@@ -10,7 +10,7 @@
 
 @layer components {
   .custom-container {
-    @apply max-w-[1200px] mx-auto px-4;
+    @apply max-w-[1100px] mx-auto px-4;
   }
 }
 
@@ -82,4 +82,8 @@
 
 .ant-image .ant-image-mask:hover {
   @apply rounded-[14px]
+}
+
+.ymaps-2-1-79-map {
+  @apply !w-full !h-full rounded-[10px]
 }
