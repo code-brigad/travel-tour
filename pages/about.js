@@ -69,7 +69,7 @@ const About = () => {
           <ul className='flex flex-row items-center gap-1'>
             {socials.map((social) => {
               return (
-                <li className='border border-white/20 hover:border-white/50 cursor-pointer p-3 bg-white/10 rounded-[5px]'>
+                <li key={social.id} className='border border-white/20 hover:border-white/50 cursor-pointer p-3 bg-white/10 rounded-[5px]'>
                   <div>
                     <social.icon />
                   </div>
