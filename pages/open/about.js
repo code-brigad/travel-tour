@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { poppins, young_serif } from '@/public/assets/fonts'
 import Head from 'next/head'
+import { motion } from 'framer-motion'
 
 const socials = [
   {
@@ -26,7 +27,7 @@ const socials = [
 ]
 
 const About = () => {
-  const { t, i18n } = useTranslation('common')
+  const { t } = useTranslation('common')
   return (
     <>
       <Head>
@@ -39,14 +40,22 @@ const About = () => {
             text={t('about.title')}
           />
           <div className='w-full flex justify-center'>
-            <ul className='flex flex-row items-center gap-5'>
+            <motion.ul
+              className='flex flex-row items-center gap-5'
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                stiffness: 500,
+                duration: 0.2,
+              }}
+            >
               <li className="border border-white/20 p-2 hover:bg-white/10 rounded-[5px] w-fit cursor-pointer before:content-['/'] relative before:absolute before:right-[-15px] before:top-[50%] before:translate-y-[-50%]">
                 <Link href={'/'}><IconHome /></Link>
               </li>
               <li className="border border-white/20 py-[6px] px-4 hover:bg-white/10 rounded-[5px] w-fit cursor-pointer">
                 <Link href={'/locations'} className='font-medium'>{t('about.title')}</Link>
               </li>
-            </ul>
+            </motion.ul>
           </div>
         </div>
       </section>

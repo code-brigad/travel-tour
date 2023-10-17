@@ -18,27 +18,27 @@ import { ChangeLang, ChangeLangMobile } from "@/components/ChangeLang";
 const links = [
   {
     id: 1,
-    link: "/direction",
+    link: "/open/direction",
     icon: IconPlane,
     name: "header.directory",
   },
   {
     id: 2,
-    link: "/special",
+    link: "/open/special",
     icon: IconBaloon,
     name: "header.help",
   },
   {
     id: 3,
-    link: "/locations",
+    link: "/open/locations",
     icon: IconLocation,
-    name: "header.location"
+    name: "header.location",
   },
   {
     id: 3,
-    link: "/about",
+    link: "/open/about",
     icon: IconInfo,
-    name: "header.about"
+    name: "header.about",
   },
 ];
 
@@ -123,30 +123,37 @@ export const Mobile = ({ menuOpen, setMenuOpen }) => {
             }}
             className="md:hidden block absolute top-0 left-0 z-40 bg-main max-w-[330px] w-full h-screen py-6"
           >
-            <div className="px-4 flex flex-row items-center justify-between mb-6">
-              <ChangeLangMobile />
-              <div
-                className="hover:bg-white/10 rounded-[5px] p-2 cursor-pointer transition-colors duration-500"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <IconClose />
+            <div className="h-[90%]">
+              <div className="px-4 flex flex-row items-center justify-between mb-6">
+                <ChangeLangMobile />
+                <div
+                  className="hover:bg-white/10 rounded-[5px] p-2 cursor-pointer transition-colors duration-500"
+                  onClick={() => setMenuOpen(!menuOpen)}
+                >
+                  <IconClose />
+                </div>
               </div>
+              <ul>
+                {links.map((link) => {
+                  return (
+                    <li className="hover:bg-white/10 px-4 border-t border-white/20 last:border-b">
+                      <Link
+                        className="flex flex-row items-center gap-2 py-4"
+                        href={link.link}
+                      >
+                        <link.icon />
+                        <p>{t(link.name)}</p>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-            <ul>
-              {links.map((link) => {
-                return (
-                  <li className="hover:bg-white/10 px-4">
-                    <Link
-                      className="flex flex-row items-center gap-2 py-2"
-                      href={link.link}
-                    >
-                      <link.icon />
-                      <p>{t(link.name)}</p>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="w-full">
+              <p className="text-center">
+                <Link href={"/"}>&copy; Sayohat 2023</Link>
+              </p>
+            </div>
           </motion.nav>
         </>
       )}
