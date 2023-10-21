@@ -13,9 +13,9 @@ const Locations = () => {
   const { t } = useTranslation("common");
   return (
     <>
-    <Head>
-      <title>Sayohat - {t('locations.pageTitle')}</title>
-    </Head>
+      <Head>
+        <title>Sayohat - {t('locations.pageTitle')}</title>
+      </Head>
       <section className='bg-cube bg-main text-white flex justify-center items-center'>
         <div className='custom-container pb-[150px] pt-[150px] flex flex-col gap-6'>
           <AnimatedHeader
@@ -23,7 +23,7 @@ const Locations = () => {
             text={t('locations.title')}
           />
           <div className='w-full flex justify-center'>
-            <motion.ul 
+            <motion.ul
               className='flex flex-row items-center gap-5'
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -36,7 +36,7 @@ const Locations = () => {
                 <Link href={'/'}><IconHome /></Link>
               </li>
               <li className="border border-white/20 py-[6px] px-4 hover:bg-white/10 rounded-[5px] w-fit cursor-pointer">
-                <Link href={'/locations'} className='font-medium'><TextSubtitle className={'!text-white'}>{t('locations.title')}</TextSubtitle></Link>
+                <TextSubtitle className={'!text-white'}><Link href={'/locations'} className='font-medium'>{t('locations.title')}</Link></TextSubtitle>
               </li>
             </motion.ul>
           </div>
@@ -48,7 +48,7 @@ const Locations = () => {
           <div className='w-full border-b'></div>
           <div className='p-2 flex flex-col gap-2'>
             <TextSubtitle className='text-start !text-black'><span className='text-main'>{t('locations.adress')}</span>: {t('locations.location')}</TextSubtitle>
-            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('locations.phone')}</span>: <a href="tel: +998900000000">+998 90 000 00 00</a></TextSubtitle>
+            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('locations.phone')}</span>: <Link href="tel: +998900000000">+998 90 000 00 00</Link></TextSubtitle>
             <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('about.info6')}:</span> info@site.uz</TextSubtitle>
           </div>
         </div>

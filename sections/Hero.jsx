@@ -37,7 +37,7 @@ const Hero = () => {
           className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[60px] text-[50px] ${unbounded.className}`}
           text={t("hero.paket.title")}
         />
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center font-regular sm:text-[16px] text-[14px]">{t("hero.paket.desc")}</motion.p>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center font-regular text-[16px]">{t("hero.paket.desc")}</motion.p>
         <BronPaket />
       </div>
     </section>

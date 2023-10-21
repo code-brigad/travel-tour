@@ -12,6 +12,6 @@ export const TextHeading = ({ className, children }) => {
 
 export const TextSubtitle = ({ className, children }) => {
     return (
-        <h3 className={`${className} text-main font-regular text-center sm:text-[16px] text-[14px]`}>{children}</h3>
+        <h3 className={`${className} text-main font-regular text-center text-[16px]`}>{children}</h3>
     )
 }

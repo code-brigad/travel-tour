@@ -1,11 +1,11 @@
+import React from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
 import { AnimatedHeader } from '@/components'
 import { IconHome, IconInstagram, IconTelegram, IconYoutube } from '@/icons'
-import Link from 'next/link'
-import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { mulish, unbounded } from '@/public/assets/fonts'
-import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { TextHeading, TextSubtitle } from '@/theme/Text'
 
@@ -73,23 +73,23 @@ const About = () => {
             <li><TextSubtitle className={'!text-black text-start'}>{t('about.info4')}</TextSubtitle></li>
             <li className='hover:text-main w-fit'>
               <TextSubtitle className='text-main text-start inline'>{t('about.info5')}:</TextSubtitle>{" "}
-              <a href="tel: +998900000000">
+              <Link href="tel: +998900000000">
                 <TextSubtitle className={'inline !text-black hover:!text-main'}>+998 90 000 00 00</TextSubtitle>
-              </a>
+              </Link>
             </li>
             <li className='w-fit'>
               <TextSubtitle className='!text-main inline'>{t('about.info6')}:</TextSubtitle>{" "}
-              <a href=""><TextSubtitle className={'!text-black inline'}>info@site.uz</TextSubtitle></a>
+              <Link href=""><TextSubtitle className={'!text-black inline'}>info@site.uz</TextSubtitle></Link>
             </li>
             <li className=' w-fit'>
               <TextSubtitle className='!text-main text-start inline'>
                 {t('locations.adress')}:
               </TextSubtitle>{" "}
-              <a href="https://yandex.uz/maps/-/CDaVAToy" target='_blank'>
+              <Link href="https://yandex.uz/maps/-/CDaVAToy" target='_blank'>
                 <TextSubtitle className={'!text-black text-start inline hover:!text-main'}>
                   Toshkent Viloyati, Bekobod Shahar
                 </TextSubtitle>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

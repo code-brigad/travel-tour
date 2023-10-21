@@ -14,6 +14,7 @@ import {
   IconPlane,
 } from "@/icons";
 import { ChangeLang, ChangeLangMobile } from "@/components/ChangeLang";
+import { TextSubtitle } from "@/theme/Text";
 
 const links = [
   {
@@ -142,7 +143,7 @@ export const Mobile = ({ menuOpen, setMenuOpen }) => {
                         href={link.link}
                       >
                         <link.icon />
-                        <p>{t(link.name)}</p>
+                        <TextSubtitle className={'!text-white'}>{t(link.name)}</TextSubtitle>
                       </Link>
                     </li>
                   );
@@ -151,7 +152,9 @@ export const Mobile = ({ menuOpen, setMenuOpen }) => {
             </div>
             <div className="w-full">
               <p className="text-center">
-                <Link href={"/"}>&copy; Sayohat 2023</Link>
+                <Link href={"/"}>
+                  <TextSubtitle className={'!text-white'}>&copy; Sayohat 2023</TextSubtitle>
+                </Link>
               </p>
             </div>
           </motion.nav>
