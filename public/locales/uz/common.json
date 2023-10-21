@@ -1,6 +1,6 @@
 {
     "header": {
-        "directory": "Yo'nalishlar",
+        "directory": "Tur Paketlar",
         "help": "Maxsus Tur Paketlar",
         "location": "Joylashuv",
         "about": "Kompaniya haqida"
@@ -38,6 +38,10 @@
         "title": "maxsus tur paketlar",
         "desc": "Eng qulay va arzon “tur paketlar” jamlanmasi",
         "btn": "Ko'proq"
+    },
+    "simple": {
+        "title": "tur paketlar",
+        "desc": "Barcha tur paketlar"
     },
     "locations": {
         "title": "Manzillarimiz",

@@ -1,6 +1,6 @@
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { poppins } from '@/public/assets/fonts'
+import { mulish } from '@/public/assets/fonts'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import ArrowLeft from '@/icons/ArrowLeft'
@@ -17,7 +17,7 @@ const Custom404 = () => {
             <Head>
                 <title>{t('custom404.pageTitle')}</title>
             </Head>
-            <section className={`bg-notfound h-screen min-h-[500px] w-full flex items-center justify-center ${poppins.className}`}>
+            <section className={`bg-notfound h-screen min-h-[500px] w-full flex items-center justify-center ${mulish.className}`}>
                 <div className='text-center flex flex-col items-center'>
                     <div className='w-[3rem] h-[3rem] bg-white shadow-lg flex items-center justify-center rounded-lg'>
                         <IconSearch />

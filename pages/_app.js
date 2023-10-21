@@ -1,16 +1,16 @@
 import { Footer, Navbar } from '@/sections'
 import { appWithTranslation } from "next-i18next";
 import { ConfigProvider } from 'antd';
-import { poppins } from '@/public/assets/fonts';
+import { mulish } from '@/public/assets/fonts';
 import '@/styles/globals.css'
 
 
 function App({ Component, pageProps }) {
-  return <main>
+  return <main className={mulish.className}>
     <ConfigProvider
       theme={{
         token: {
-          fontFamily: poppins.style.fontFamily
+          fontFamily: mulish.style.fontFamily
         },
         components: {
           DatePicker: {

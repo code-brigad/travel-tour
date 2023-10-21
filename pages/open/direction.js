@@ -2,10 +2,10 @@ import { AnimatedHeader } from '@/components'
 import { BronPaket } from '@/sections'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { motion } from 'framer-motion'
-import { poppins, young_serif } from '@/public/assets/fonts'
+import { mulish, unbounded } from '@/public/assets/fonts'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
-import { IconCloud } from '@/icons'
+import { TextHeading, TextSubtitle } from '@/theme/Text'
 
 const Direction = () => {
   const { t } = useTranslation('common')
@@ -15,12 +15,12 @@ const Direction = () => {
         <title>{t('direction.pageTitle')}</title>
       </Head>
       <section className="bg-cube bg-main text-white min-h-[400px] flex items-center justify-center">
-        <div className="pt-[100px] pb-[100px] w-full custom-container flex flex-col gap-4">
+        <div className="pt-[150px] pb-[150px] w-full custom-container flex flex-col gap-6">
           {/* <UserSearchType searchType={searchType} setSearchType={setSearchType} /> */}
           {/* {searchType == "paket" ? (
           <>
             <AnimatedHeader
-              className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${young_serif.className}`}
+              className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${unbounded.className}`}
               text={t("hero.paket.title")}
             />
             <p className="text-center font-regular">{t("hero.paket.desc")}</p>
@@ -29,7 +29,7 @@ const Direction = () => {
         ) : (
           <>
             <AnimatedHeader
-              className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${young_serif.className}`}
+              className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${unbounded.className}`}
               text={"Mehmonxona"}
             />
             <p className="text-center font-regular">{t("hero.paket.desc")}</p>
@@ -37,20 +37,20 @@ const Direction = () => {
           </>
         )} */}
           <AnimatedHeader
-            className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${young_serif.className}`}
+            className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${unbounded.className}`}
             text={t("direction.title")}
           />
           <BronPaket />
         </div>
       </section>
-      <section className={`custom-container py-[60px] ${poppins.className}`}>
+      <section className={`custom-container py-[60px] ${mulish.className}`}>
         <div className='w-full flex items-center justify-center'>
           <div className='bg-main/[0.03] rounded-[10px] py-6 sm:w-[50%] w-full border'>
-            <h1 className='sm:px-0 px-1  font-semibold text-[20px] uppercase text-center mb-2'>{t('direction.notFound')}</h1>
-            <p className='text-center mb-1'>{t('direction.reason')}</p>
+            <TextHeading className={"text-center"}>{t('direction.notFound')}</TextHeading>
+            <TextSubtitle className={'!text-black'}>{t('direction.reason')}</TextSubtitle>
             <ul className='px-3 flex flex-col justify-center items-center'>
-              <li className='text-[14px]'>{t('direction.reason1')}</li>
-              <li className='text-[14px]'>{t('direction.reason2')}</li>
+              <li className='text-[14px]'><TextSubtitle className={'!text-black'}>{t('direction.reason1')}</TextSubtitle></li>
+              <li className='text-[14px]'><TextSubtitle className={'!text-black'}>{t('direction.reason2')}</TextSubtitle></li>
             </ul>
           </div>
         </div>

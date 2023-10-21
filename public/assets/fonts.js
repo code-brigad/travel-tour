@@ -1,11 +1,11 @@
-import { Poppins, Righteous } from 'next/font/google'
+import { Mulish, Unbounded} from 'next/font/google'
 
-export const young_serif = Righteous({
+export const unbounded = Unbounded({
     weight: ["400"],
     subsets: ["latin"],
 })
 
-export const poppins = Poppins({
-    weight: ["400", "500", "600", "700", "800", "900"],
+export const mulish = Mulish({
+    weight: ["400", "500", "600", "700", "800", "900", "1000"],
     subsets: ["latin"],
 })

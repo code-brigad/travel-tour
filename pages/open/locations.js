@@ -1,5 +1,5 @@
 import { AnimatedHeader } from '@/components'
-import { poppins, young_serif } from '@/public/assets/fonts';
+import { mulish, unbounded } from '@/public/assets/fonts';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next';
 import { IconHome } from '@/icons';
@@ -7,6 +7,7 @@ import { YMaps, Map, ZoomControl, Placemark, FullscreenControl } from '@pbe/reac
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
+import { TextHeading, TextSubtitle } from '@/theme/Text';
 
 const Locations = () => {
   const { t } = useTranslation("common");
@@ -15,10 +16,10 @@ const Locations = () => {
     <Head>
       <title>Sayohat - {t('locations.pageTitle')}</title>
     </Head>
-      <section className='pt-[100px] min-h-[400px] pb-8 bg-cube bg-main text-white flex justify-center items-center'>
-        <div className='custom-container flex flex-col gap-5'>
+      <section className='bg-cube bg-main text-white flex justify-center items-center'>
+        <div className='custom-container pb-[150px] pt-[150px] flex flex-col gap-6'>
           <AnimatedHeader
-            className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${young_serif.className}`}
+            className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${unbounded.className}`}
             text={t('locations.title')}
           />
           <div className='w-full flex justify-center'>
@@ -35,20 +36,20 @@ const Locations = () => {
                 <Link href={'/'}><IconHome /></Link>
               </li>
               <li className="border border-white/20 py-[6px] px-4 hover:bg-white/10 rounded-[5px] w-fit cursor-pointer">
-                <Link href={'/locations'} className='font-medium'>{t('locations.title')}</Link>
+                <Link href={'/locations'} className='font-medium'><TextSubtitle className={'!text-white'}>{t('locations.title')}</TextSubtitle></Link>
               </li>
             </motion.ul>
           </div>
         </div>
       </section>
-      <section className={`py-[60px] custom-container flex md:flex-row flex-col gap-3 md:h-[400px] h-[800px] ${poppins.className}`}>
+      <section className={`py-[60px] custom-container flex md:flex-row flex-col gap-3 md:h-[400px] h-[800px] ${mulish.className}`}>
         <div className='flex flex-col gap-1 w-full md:h-full h-[200px] bg-main/[0.03] border rounded-[10px]'>
-          <h1 className='uppercase font-semibold text-[20px] p-2'>{t('locations.location')}</h1>
+          <TextHeading className={'p-2'}>{t('locations.location')}</TextHeading>
           <div className='w-full border-b'></div>
           <div className='p-2 flex flex-col gap-2'>
-            <p className=''><span className='text-main'>{t('locations.adress')}</span>: {t('locations.location')}</p>
-            <p><span className='text-main'>{t('locations.phone')}</span>: <a href="tel: +998900000000">+998 90 000 00 00</a></p>
-            <p><span className='text-main'>{t('about.info6')}:</span> info@site.uz</p>
+            <TextSubtitle className='text-start !text-black'><span className='text-main'>{t('locations.adress')}</span>: {t('locations.location')}</TextSubtitle>
+            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('locations.phone')}</span>: <a href="tel: +998900000000">+998 90 000 00 00</a></TextSubtitle>
+            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('about.info6')}:</span> info@site.uz</TextSubtitle>
           </div>
         </div>
         <YMaps>

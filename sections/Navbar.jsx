@@ -1,4 +1,4 @@
-import { poppins, young_serif } from "@/public/assets/fonts";
+import { mulish, unbounded } from "@/public/assets/fonts";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
@@ -48,13 +48,13 @@ const Navbar = () => {
   const { t } = useTranslation("common");
   return (
     <motion.nav
-      className={`bg-main bg-cube fixed w-full z-30 text-white ${poppins.className}`}
+      className={`bg-main bg-cube fixed w-full z-30 text-white ${mulish.className}`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "linear", duration: 0.2 }}
     >
       <div className="custom-container py-4 flex flex-row justify-between items-center">
-        <Link href={"/"} className={`${young_serif.className}`}>
+        <Link href={"/"} className={`${unbounded.className}`}>
           Sayohat
         </Link>
         <ul className="flex flex-row items-center gap-2">
