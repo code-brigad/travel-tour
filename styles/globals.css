@@ -29,11 +29,11 @@
 }
 
 .ant-picker {
-  @apply xl:rounded-l-none rounded-l-[10px] xl:col-span-1 col-span-2 col-start-1 xl:row-auto row-start-3 hover:border-none border-none;
+  @apply rounded-r-[10px] md:rounded-l-none rounded-l-[10px] hover:border-none border-none;
 }
 
 .ant-picker-input {
-  @apply xl:rounded-l-none rounded-l-[10px] py-6 px-3 !text-black bg-white outline-none transition-all duration-300 capitalize;
+  @apply rounded-r-[10px] md:rounded-l-none rounded-l-[10px] py-6 px-3 !text-black bg-white outline-none transition-all duration-300 capitalize;
 }
 
 .ant-picker input {
@@ -46,31 +46,6 @@
 
 .ant-picker-focused .ant-picker-input {
   @apply ring-2 ring-secondary;
-}
-
-/* back date styles */
-.back-date {
-  @apply xl:rounded-r-none rounded-r-[10px] rounded-l-none xl:col-span-1 col-span-2 xl:row-auto row-start-3;
-}
-
-.back-date .ant-picker-input {
-  @apply xl:rounded-r-none rounded-r-[10px] rounded-l-none py-6 px-3 !text-black bg-white outline-none transition-all duration-300 capitalize;
-}
-
-.back-date .ant-picker input {
-  @apply font-normal placeholder:!opacity-100;
-}
-
-.back-date .ant-picker-today-btn {
-  @apply !hidden;
-}
-
-.back-date .ant-picker-footer {
-  @apply text-main text-center;
-}
-
-.back-date .ant-picker-footer-extra {
-  @apply flex items-center justify-center;
 }
 
 .input .clear,

@@ -46,11 +46,11 @@ const BronPaket = () => {
       animate={{ scale: 1 }}
       className="flex flex-col items-center gap-4"
     >
-      <div className="grid w-full xl:grid-cols-5 grid-cols-4 xl:grid-rows-1 grid-rows-4 gap-[0.15rem]">
-        <div className="input xl:col-span-1 col-span-4 relative">
+      <div className="w-full flex md:flex-row flex-col justify-between gap-[0.15rem]">
+        <div className="w-full input relative">
           <input
             type="text"
-            className={`${classes} w-full h-full rounded-l-[10px] xl:rounded-r-none rounded-r-[10px]`}
+            className={`${classes} w-full h-full rounded-l-[10px] md:rounded-r-none rounded-r-[10px]`}
             placeholder={t("hero.paket.input.where")}
             value={where.value}
             onChange={(e) =>
@@ -119,10 +119,10 @@ const BronPaket = () => {
             )}
           </AnimatePresence>
         </div>
-        <div className="input2 xl:col-span-1 col-span-4 relative">
+        <div className="w-full input2 relative">
           <input
             type="text"
-            className={`${classes} w-full h-full xl:rounded-l-none rounded-l-[10px] xl:rounded-r-none rounded-r-[10px]`}
+            className={`${classes} w-full h-full md:rounded-none rounded-[10px]`}
             placeholder={t("hero.paket.input.where2")}
             value={where2.value}
             onChange={(e) =>
@@ -185,74 +185,12 @@ const BronPaket = () => {
             )}
           </AnimatePresence>
         </div>
-        <DatePicker
-          onChange={handleGetGoDate}
-          placeholder={t("hero.paket.input.go")}
-        />
-        <DatePicker
-          rootClassName="back-date"
-          className="back-date"
-          onChange={handleGetBackDate}
-          placeholder={t("hero.paket.input.back")}
-          renderExtraFooter={() => (
-            <button onClick={() => console.log("work")}>
-              Qaytish uchun chipta kerak emas
-            </button>
-          )}
-        />
-        <div className="xl:col-span-1 col-span-4 col-start-1 xl:row-auto row-start-4 relative">
-          <div
-            className={`${classes} rounded-r-[10px] xl:rounded-l-none rounded-l-[10px] flex flex-row items-center justify-between h-full w-full`}
-          >
-            <div
-              className="p-[2px] bg-gray-400 rounded-full cursor-pointer"
-              onClick={() => setPassenger((passenger -= 1))}
-            >
-              <svg
-                className="fill-white"
-                xmlns="http://www.w3.org/2000/svg"
-                width="18px"
-                height="18px"
-                fill="none"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  className="stroke-white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 12h12"
-                ></path>
-              </svg>
-            </div>
-            <p>
-              {passenger} {t("hero.paket.input.passenger")}
-            </p>
-            <div
-              className="p-[2px] bg-main rounded-full cursor-pointer"
-              onClick={() => setPassenger((passenger += 1))}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18px"
-                height="18px"
-                fill="none"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                color="#000000"
-              >
-                <path
-                  stroke="#000000"
-                  className="stroke-white"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 12h6m6 0h-6m0 0V6m0 6v6"
-                ></path>
-              </svg>
-            </div>
-          </div>
+        <div className="w-full">
+          <DatePicker
+            className="w-full"
+            onChange={handleGetGoDate}
+            placeholder={t("hero.paket.input.go")}
+          />
         </div>
       </div>
       <motion.button
