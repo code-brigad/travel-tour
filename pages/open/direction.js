@@ -15,7 +15,7 @@ const Direction = () => {
         <title>{t('direction.pageTitle')}</title>
       </Head>
       <section className="bg-cube bg-main text-white min-h-[400px] flex items-center justify-center">
-        <div className="pt-[100px] pb-[100px] custom-container flex flex-col gap-4">
+        <div className="pt-[100px] pb-[100px] w-full custom-container flex flex-col gap-4">
           {/* <UserSearchType searchType={searchType} setSearchType={setSearchType} /> */}
           {/* {searchType == "paket" ? (
           <>
