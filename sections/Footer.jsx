@@ -11,32 +11,28 @@ const Footer = () => {
       <div className="flex w-full flex-col items-center gap-6 mb-6">
         <ul className="flex sm:flex-row flex-col text-center gap-2">
           <li className="text-[14px] hover:text-main">
-            <Link href={"/"}>
-              <TextSubtitle className={"!text-black hover:!text-main"}>
-                {t("footer.paket")}
-              </TextSubtitle>
-            </Link>
+            <TextSubtitle className={"!text-black hover:!text-main"}>
+              <Link href={"/"}>{t("footer.paket")}</Link>
+            </TextSubtitle>
           </li>
           <li className="sm:block hidden">&bull;</li>
           <li className="text-[14px] hover:text-main">
-            <Link href={"/"}>
-              <TextSubtitle className={"!text-black hover:!text-main"}>
-                {t("footer.special")}
-              </TextSubtitle>
-            </Link>
+            <TextSubtitle className={"!text-black hover:!text-main"}>
+              <Link href={"/"}>{t("footer.special")}</Link>
+            </TextSubtitle>
           </li>
           <li className="sm:block hidden">&bull;</li>
           <li className="text-[14px] hover:text-main">
             <Link href={"/info"}>
-              <Link href={"/"}>
-                <TextSubtitle className={"!text-black hover:!text-main"}>
-                  {t("footer.help")}
-                </TextSubtitle>
-              </Link>
+              <TextSubtitle className={"!text-black hover:!text-main"}>
+                {t("footer.help")}
+              </TextSubtitle>
             </Link>
           </li>
         </ul>
-        <TextSubtitle className={'!text-black'}>&copy; Sayohat {new Date().getFullYear()}</TextSubtitle>
+        <TextSubtitle className={"!text-black"}>
+          &copy; Sayohat {new Date().getFullYear()}
+        </TextSubtitle>
       </div>
       <div className="bg-main text-white py-4 flex items-center">
         <Link
