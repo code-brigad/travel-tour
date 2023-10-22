@@ -1,16 +1,75 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
-import { TextHeading, TextSubtitle, TextTitle } from "@/theme/Text";
+import { TextSubtitle, TextTitle } from "@/theme/Text";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css/pagination";
+import { useRouter } from "next/navigation";
 
 const packages = [
   {
-    photo: "/images/placeholder.png",
+    photo: "/images/big-placeholder.png",
     city: "BAA",
     price: "1.6",
   },
   {
-    photo: "/images/placeholder.png",
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
+    city: "BAA",
+    price: "1.6",
+  },
+  {
+    photo: "/images/big-placeholder.png",
     city: "BAA",
     price: "1.6",
   },
@@ -18,56 +77,45 @@ const packages = [
 
 const SpecialPackages = () => {
   const { t, i18n } = useTranslation("common");
+  const router = useRouter()
   return (
-    <section className="custom-container py-8 flex flex-col gap-8">
-      <div>
+    <section className="custom-container pt-8 flex flex-col gap-8">
+      {/* <div>
         <TextTitle>{t("cpecial.title")}</TextTitle>
         <TextSubtitle>{t("cpecial.desc")}</TextSubtitle>
-      </div>
-      <ul className="grid md:grid-cols-4 grid-cols-2 gap-3">
-        {packages.map((pack, i) => {
-          return (
-            <li key={i}>
-              <div className="cursor-pointer w-full h-auto">
+      </div> */}
+      <ul className="flex flex-col gap-4 w-full h-fit">
+        <Swiper
+          direction={'vertical'}
+          spaceBetween={30}
+          loop={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            dynamicBullets: true,
+          }}
+          modules={[Pagination, Autoplay]}
+        >
+          {packages.map((pack, i) => {
+            return (
+              <SwiperSlide className="w-full h-fit cursor-pointer">
                 <Image
                   src={pack.photo}
                   alt={pack.city}
-                  width={200}
-                  height={200}
-                  className="w-full h-full"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-fit rounded-[20px]"
+                  onClick={() => router.push({
+                    pathname: '/view/special/[id]',
+                    query: { id: i, whereFrom: "tashkent", where: "jidda" }
+                  })}
                 />
-              </div>
-              <TextHeading>{pack.city}</TextHeading>
-              <div className="flex flex-row gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18px"
-                  height="18px"
-                  fill="none"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                  color="#000000"
-                  className="fill-gray-400"
-                >
-                  <path
-                    className="stroke-gray-400"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M10.5 4.5v4.667a.6.6 0 0 1-.282.51l-7.436 4.647a.6.6 0 0 0-.282.508v.9a.6.6 0 0 0 .746.582l6.508-1.628a.6.6 0 0 1 .746.582v2.96a.6.6 0 0 1-.205.451l-2.16 1.89c-.458.402-.097 1.151.502 1.042l3.256-.591a.6.6 0 0 1 .214 0l3.256.591c.599.11.96-.64.502-1.041l-2.16-1.89a.6.6 0 0 1-.205-.452v-2.96a.6.6 0 0 1 .745-.582l6.51 1.628a.6.6 0 0 0 .745-.582v-.9a.6.6 0 0 0-.282-.508l-7.436-4.648a.6.6 0 0 1-.282-.509V4.5a1.5 1.5 0 0 0-3 0Z"
-                  ></path>
-                </svg>
-                <TextSubtitle className={'!text-black text-start'}>
-                  {i18n.language == "uz" ? (
-                    <>{pack.price}mln dan boshlab</>
-                  ) : (
-                    <>начиная с {pack.price}</>
-                  )}
-                </TextSubtitle>
-              </div>
-            </li>
-          );
-        })}
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </ul>
     </section>
   );

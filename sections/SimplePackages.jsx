@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import { TextHeading, TextSubtitle, TextTitle } from "@/theme/Text";
+import { useRouter } from "next/navigation";
 
 const packages = [
   {
@@ -48,6 +49,7 @@ const packages = [
 
 const SimplePackages = () => {
   const { t, i18n } = useTranslation("common");
+  const router = useRouter()
   return (
     <section className="custom-container py-8 flex flex-col gap-8">
       <div>
@@ -65,6 +67,10 @@ const SimplePackages = () => {
                   width={200}
                   height={200}
                   className="w-full h-full"
+                  onClick={() => router.push({
+                    pathname: '/view/direction/[id]',
+                    query: { id: i, whereFrom: "tashkent", where: "jidda" }
+                  })}
                 />
               </div>
               <TextHeading>{pack.city}</TextHeading>

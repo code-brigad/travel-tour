@@ -3,7 +3,7 @@ import { appWithTranslation } from "next-i18next";
 import { ConfigProvider } from 'antd';
 import { mulish } from '@/public/assets/fonts';
 import '@/styles/globals.css'
-
+import 'swiper/css';
 
 function App({ Component, pageProps }) {
   return <main className={mulish.className}>

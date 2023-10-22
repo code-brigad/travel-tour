@@ -19,25 +19,25 @@ import { TextSubtitle } from "@/theme/Text";
 const links = [
   {
     id: 1,
-    link: "/open/direction",
+    link: "/view/direction",
     icon: IconPlane,
     name: "header.directory",
   },
   {
     id: 2,
-    link: "/open/special",
+    link: "/view/special",
     icon: IconBaloon,
     name: "header.help",
   },
   {
     id: 3,
-    link: "/open/locations",
+    link: "/view/locations",
     icon: IconLocation,
     name: "header.location",
   },
   {
     id: 3,
-    link: "/open/about",
+    link: "/view/about",
     icon: IconInfo,
     name: "header.about",
   },

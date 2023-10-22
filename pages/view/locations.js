@@ -36,7 +36,7 @@ const Locations = () => {
                 <Link href={'/'}><IconHome /></Link>
               </li>
               <li className="border border-white/20 py-[6px] px-4 hover:bg-white/10 rounded-[5px] w-fit cursor-pointer">
-                <TextSubtitle className={'!text-white'}><Link href={'/open/locations'} className='font-medium'>{t('locations.title')}</Link></TextSubtitle>
+                <TextSubtitle className={'!text-white'}><Link href={'/view/locations'} className='font-medium'>{t('locations.title')}</Link></TextSubtitle>
               </li>
             </motion.ul>
           </div>

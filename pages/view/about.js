@@ -54,7 +54,7 @@ const About = () => {
                 <Link href={'/'}><IconHome /></Link>
               </li>
               <li className="border border-white/20 py-[6px] px-4 hover:bg-white/10 rounded-[5px] w-fit cursor-pointer">
-                <Link href={'/open/about'} className='font-medium'>
+                <Link href={'/view/about'} className='font-medium'>
                   <TextSubtitle className={'!text-white'}>{t('about.title')}</TextSubtitle>
                 </Link>
               </li>
