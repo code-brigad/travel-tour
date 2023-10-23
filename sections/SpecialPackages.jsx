@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css/pagination";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const packages = [
   {
@@ -77,7 +78,7 @@ const packages = [
 
 const SpecialPackages = () => {
   const { t, i18n } = useTranslation("common");
-  const router = useRouter()
+  const router = useRouter();
   return (
     <section className="custom-container pt-8 flex flex-col gap-8">
       {/* <div>
@@ -86,7 +87,7 @@ const SpecialPackages = () => {
       </div> */}
       <ul className="flex flex-col gap-4 w-full h-fit">
         <Swiper
-          direction={'vertical'}
+          direction={"vertical"}
           spaceBetween={30}
           loop={true}
           autoplay={{
@@ -101,17 +102,20 @@ const SpecialPackages = () => {
           {packages.map((pack, i) => {
             return (
               <SwiperSlide className="w-full h-fit cursor-pointer">
-                <Image
-                  src={pack.photo}
-                  alt={pack.city}
-                  width={1000}
-                  height={1000}
-                  className="w-full h-fit rounded-[20px]"
-                  onClick={() => router.push({
-                    pathname: '/view/special/[id]',
-                    query: { id: "0d25be44-ab87-4585-a602-e071edee2122" }
-                  })}
-                />
+                <Link
+                  href={{
+                    pathname: "/view/special/[id]",
+                    query: { id: "0d25be44-ab87-4585-a602-e071edee2122" },
+                  }}
+                >
+                  <Image
+                    src={pack.photo}
+                    alt={pack.city}
+                    width={1000}
+                    height={1000}
+                    className="w-full h-fit rounded-[20px]"
+                  />
+                </Link>
               </SwiperSlide>
             );
           })}

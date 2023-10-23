@@ -38,28 +38,26 @@ const Open = () => {
     getPackages();
   }, [router]);
 
-  // if (isLoading) {
-  //   return (
-  //     <div className='custom-container py-[150px]'>
-  //       <Loading />
-  //     </div>
-  //   )
-  // }
+  if (isLoading) {
+    return (
+      <div className='custom-container py-[150px]'>
+        <Loading />
+      </div>
+    )
+  }
 
-  // if (isError) {
-  //   return (
-  //     <div className='custom-container py-[150px]'>
-  //       <Error />
-  //     </div>
-  //   )
-  // }
-
-  // {tourPackage[replaceWithLocale(router, "from_")]}	&rarr; {tourPackage[replaceWithLocale(router, "where_")]}
+  if (isError) {
+    return (
+      <div className='custom-container py-[150px]'>
+        <Error />
+      </div>
+    )
+  }
 
   return (
     <>
       <Head>
-        <title>title</title>
+        <title>{tourPackage[replaceWithLocale(router, "from_")]}	&rarr; {tourPackage[replaceWithLocale(router, "where_")]}</title>
       </Head>
       <section className='sm:pt-[150px] pt-[100px] pb-[50px] flex flex-col gap-6 custom-container'>
         <div className='w-full'>
