@@ -6,5 +6,3 @@ export { default as BronHotel } from "./BronHotel"
 export { default as BronPaket } from "./BronPaket"
 export { default as SpecialPackages } from "./SpecialPackages"
 export { default as SimplePackages } from "./SimplePackages"
-
-export { default as Direction } from "./direction/Direction"

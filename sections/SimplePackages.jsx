@@ -51,9 +51,9 @@ const SimplePackages = () => {
               <li key={data.id}>
                 <Link
                   href={{
-                    pathname: "/view/direction/[id]",
+                    pathname: "[id]",
                     query: {
-                      id: 1,
+                      id: data.id,
                     },
                   }}
                 >
