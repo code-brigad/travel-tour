@@ -53,7 +53,7 @@ const SimplePackages = () => {
                   href={{
                     pathname: "/view/direction/[id]",
                     query: {
-                      id: data.id,
+                      id: 1,
                     },
                   }}
                 >

@@ -11,7 +11,8 @@ const Open = () => {
       <Head>
         <title>Test</title>
       </Head>
-      <Direction route={route} />
+      {/* <Direction route={route} /> */}
+      <div>{route.query.id}</div>
     </>
   )
 }
