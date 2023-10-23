@@ -13,7 +13,7 @@ import axios from "axios"
 import Link from 'next/link';
 import { Error, Loading } from '@/components';
 
-const Open = () => {
+const OpenDirection = () => {
   const { t, i18n } = useTranslation('common')
   const router = useRouter()
   const [tourPackage, setTourPackage] = useState([]);
@@ -117,4 +117,4 @@ export async function getServerSideProps({ locale }) {
   }
 }
 
-export default Open
+export default OpenDirection
