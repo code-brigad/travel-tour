@@ -13,52 +13,53 @@ import axios from "axios"
 import Link from 'next/link';
 import { Error, Loading } from '@/components';
 
-const OpenDirection = () => {
+const OpenDirection = ({ tourPackage }) => {
+  console.log(tourPackage, "user");
   const { t, i18n } = useTranslation('common')
   const router = useRouter()
-  const [tourPackage, setTourPackage] = useState([]);
+  // const [tourPackage, setTourPackage] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const getPackages = async () => {
-    setIsLoading(true);
-    setIsError(false);
-    try {
-      const { data } = await axios.get(`https://tour-spsn.onrender.com/api/travel/${router.query.id}`);
-      setTourPackage(data);
-      setIsLoading(false);
-      setIsError(false);
-    } catch (error) {
-      setIsLoading(false);
-      setIsError(true);
-    }
-  };
+  // const getPackages = async () => {
+  //   setIsLoading(true);
+  //   setIsError(false);
+  //   try {
+  //     const { data } = await axios.get(`https://tour-spsn.onrender.com/api/travel/${router.query.id}`);
+  //     setTourPackage(data);
+  //     setIsLoading(false);
+  //     setIsError(false);
+  //   } catch (error) {
+  //     setIsLoading(false);
+  //     setIsError(true);
+  //   }
+  // };
 
-  useEffect(() => {
-    getPackages();
-  }, [router]);
+  // useEffect(() => {
+  //   getPackages();
+  // }, [router]);
 
-  if (isLoading) {
-    return (
-      <div className='custom-container py-[150px]'>
-        <Loading />
-      </div>
-    )
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className='custom-container py-[150px]'>
+  //       <Loading />
+  //     </div>
+  //   )
+  // }
 
-  if (isError) {
-    return (
-      <div className='custom-container py-[150px]'>
-        <Error />
-      </div>
-    )
-  }
+  // if (isError) {
+  //   return (
+  //     <div className='custom-container py-[150px]'>
+  //       <Error />
+  //     </div>
+  //   )
+  // }
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{tourPackage[replaceWithLocale(router, "from_")]}	&rarr; {tourPackage[replaceWithLocale(router, "where_")]}</title>
-      </Head>
+      </Head> */}
       <section className='sm:pt-[150px] pt-[100px] pb-[50px] flex flex-col gap-6 custom-container'>
         <div className='w-full'>
           <Image src={'/images/big-placeholder.png'} alt='placeholder' width={500} height={500} className='w-full rounded-[20px]' />
@@ -107,10 +108,13 @@ const OpenDirection = () => {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getServerSideProps(props) {
+  const res = await axios.get(`https://tour-spsn.onrender.com/api/travel/${props.params.id}`)
+  const datas = await res.data
   return {
     props: {
-      ...(await serverSideTranslations(locale, [
+      tourPackage: datas,
+      ...(await serverSideTranslations(props.locale, [
         'common'
       ])),
     },
