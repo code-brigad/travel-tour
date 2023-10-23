@@ -1,34 +1,120 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
-import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { TextSubtitle } from '@/theme/Text';
+import { IconMoney, IconTelegram } from '@/icons';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { replaceWithLocale } from "@/layouts/replaceWithLocale"
+import Head from 'next/head';
+import Image from 'next/image';
+import Plane from '@/icons/Plane';
+import axios from "@/config/axios.config"
+import Link from 'next/link';
+import { Error, Loading } from '@/components';
 
-const Open = () => {
-    const { t, i18n } = useTranslation('common')
-    const router = useRouter()
+const OpenDirection = () => {
+  const { t, i18n } = useTranslation('common')
+  const router = useRouter()
+  const [tourPackage, setTourPackage] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
+  const getPackages = async () => {
+    setIsLoading(true);
+    setIsError(false);
+    try {
+      const { data } = await axios.get(`travel/${router.query.id}`);
+      setTourPackage(data);
+      setIsLoading(false);
+      setIsError(false);
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+    }
+  };
+
+  useEffect(() => {
+    getPackages();
+  }, [router]);
+
+  if (isLoading) {
     return (
-        <>
-            <Head>
-                <title>Sayohat - {t('cpecial.desc')}</title>
-            </Head>
-            <section className='flex items-center'>
-                <div className='custom-container pt-[150px] pb-[150px] flex flex-col gap-6'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti repellat doloribus facilis, soluta ex dolore atque ipsum maxime adipisci dicta exercitationem dolor delectus asperiores. Ab quos natus laudantium illum. Veniam corrupti nesciunt omnis laudantium? Asperiores, numquam enim recusandae eligendi quae ipsam ipsa mollitia harum accusamus architecto earum labore ab optio veritatis, delectus pariatur voluptate nostrum eum perferendis. Facere, culpa nobis quibusdam dolorum nulla delectus! Illo minima nulla unde cupiditate iste! Ea temporibus accusantium eius aspernatur repellendus? Odio, illum sunt perferendis quod incidunt modi eum ipsam laboriosam similique, magni amet ad? Beatae a optio vero assumenda ex quae, distinctio consequatur aliquam quibusdam pariatur, non laborum tenetur? Deleniti obcaecati assumenda cum atque ipsum non aspernatur blanditiis iusto accusamus aperiam corporis modi fugit quas natus eligendi laboriosam repellendus, vitae deserunt, nulla in harum ipsa odio. Aperiam tenetur nobis vero adipisci mollitia voluptatem ullam incidunt quidem. Quo voluptate architecto porro molestias facilis excepturi dignissimos, fugit, labore facere libero minus. Voluptas error, qui nesciunt culpa dolorem, magni impedit iusto hic quibusdam voluptate itaque soluta quae deleniti optio eius, provident possimus id delectus. Pariatur sint est optio, et deserunt atque ipsum quod nihil blanditiis ullam ipsam repudiandae aperiam eius iusto? Deserunt at, omnis aperiam obcaecati consequuntur sequi ut qui excepturi quibusdam doloremque quae est officiis animi dolorem saepe esse commodi id vero nulla aspernatur voluptatum quo. Amet molestiae minima iure culpa maxime. Reprehenderit, unde cupiditate exercitationem suscipit explicabo dolorum? Soluta, incidunt. Esse natus vero illum quasi maxime nobis, est assumenda fugiat, quia cumque, vel quam iusto deserunt illo fugit nisi accusamus? Rem doloremque sunt atque enim ullam consequuntur, natus at! Dolores amet maxime sit quas nesciunt ad, consectetur earum perspiciatis inventore, rerum ipsum eligendi animi maiores facilis minima! Aliquam nisi doloribus architecto at culpa explicabo, quasi voluptatum beatae totam veritatis fugit. Cupiditate, voluptatem, quibusdam provident minus necessitatibus dicta voluptatibus veniam tempore, voluptates repudiandae laboriosam quae repellendus blanditiis natus nam. Consequuntur voluptatem eum, fuga cum doloremque est totam at commodi sequi vero velit a rem modi enim saepe tempora cumque. Dolore eos enim, velit aliquid iusto odit odio. In necessitatibus ipsa alias adipisci sapiente nisi temporibus doloremque sed reiciendis neque nihil obcaecati, doloribus, cum eius illo libero ut quibusdam commodi qui, dignissimos ea voluptate fugit! Corrupti iste corporis et, ratione fuga eius quasi voluptates veniam error quas quidem necessitatibus quia totam in atque illo quis voluptatum! Similique, quo vitae eos deserunt ducimus excepturi. Quaerat unde quia eaque, harum ab itaque molestiae doloribus voluptatibus quisquam provident iusto. Provident quisquam nam ex deserunt, architecto laboriosam quod ducimus quas distinctio, et sequi asperiores iure quo sed quaerat obcaecati voluptatem porro corporis rem ipsa quia dolor commodi quis! Asperiores numquam sed atque nulla sint earum enim ducimus repellendus, voluptates illum! Dolore quos atque incidunt, sunt, nihil corporis minima quo ad molestias maiores modi, beatae vero architecto quibusdam sit? Dolorem commodi expedita vel eum nemo, incidunt repudiandae optio quisquam, non, facere quam quo vitae temporibus exercitationem suscipit aliquid. Quo provident ad voluptates cupiditate distinctio, qui quaerat. Aperiam autem possimus natus minus modi dignissimos reprehenderit officiis corrupti reiciendis incidunt laudantium doloremque, voluptatem velit molestias fugiat veritatis blanditiis iste consectetur fugit error pariatur, tempora accusamus dolorum! In doloremque maxime voluptatum quibusdam saepe quas eius quod unde ipsam excepturi facere cumque alias ratione, ipsa possimus nulla soluta eaque libero? Deserunt neque cupiditate laudantium perspiciatis! Similique modi vitae enim alias quaerat officia atque placeat nesciunt, earum, iure aliquid obcaecati distinctio vel accusantium facere. Ad alias consequatur impedit consectetur, odio maiores exercitationem dolorum nemo reiciendis aut animi? Optio sint nemo, asperiores maxime voluptas veritatis labore esse, assumenda nihil qui, eveniet odit? Libero, architecto asperiores! Temporibus mollitia placeat ut reprehenderit obcaecati, saepe, aspernatur neque consectetur, eos nostrum cupiditate perspiciatis harum blanditiis consequatur consequuntur animi sed. Aut delectus in sint beatae fugit recusandae quam necessitatibus non vel reiciendis adipisci, debitis mollitia ratione blanditiis hic magnam reprehenderit, impedit praesentium ullam accusantium expedita provident nisi? Nisi eos nemo accusantium quam unde vitae blanditiis exercitationem quia, modi, rem deserunt ratione amet ipsa ab in voluptates fuga doloribus reiciendis id, necessitatibus libero cumque dolorum corporis est. Molestias quas fugit itaque nisi tenetur, doloribus iusto corrupti deserunt nam voluptatibus explicabo perspiciatis! Nobis asperiores sint debitis facere ab a aspernatur voluptatem dolorem, incidunt fugiat deserunt alias labore cupiditate quod dolorum sapiente? Iusto molestiae laborum iste nobis, minus delectus nesciunt debitis voluptatum quos soluta corporis fugiat reprehenderit optio quis dolores tempora. Dignissimos aperiam quasi sunt vitae accusantium voluptas cupiditate animi consequatur facilis quisquam. Enim eligendi voluptatem saepe voluptate amet, iste optio deleniti unde exercitationem cumque, accusantium officia odio architecto omnis eum sed? Maxime mollitia laudantium, voluptatum fugiat odio dolorum veniam corrupti ullam molestias esse sapiente sed, aperiam fuga non eum dolores officiis facere velit iure? Excepturi ex modi tenetur magni reiciendis optio tempore alias quae architecto ullam accusamus vitae quos rerum aspernatur pariatur ab facilis minima rem perferendis, laborum nobis veniam quaerat minus! At unde provident nobis culpa illum corporis cumque quo assumenda, incidunt eveniet error magnam accusantium sit similique excepturi impedit aperiam! Nulla rem quo sint quam laboriosam doloremque error saepe optio facilis, dolorem sapiente dolore cum neque suscipit nesciunt laborum minima eveniet nemo explicabo magni debitis minus! Repudiandae velit molestias neque, modi, delectus, commodi consequatur iste animi eveniet numquam recusandae quia! Assumenda facilis dicta iste, ut nobis quaerat accusantium consequatur iusto unde, itaque quae enim similique molestiae consequuntur eveniet nam quisquam odit hic excepturi necessitatibus maiores illum? Inventore sequi, eos repellat maiores, doloribus neque dolorum et iure ad tempora facilis velit consectetur minima adipisci dignissimos consequatur, voluptatem eveniet quidem? Neque doloribus dolores commodi, eveniet animi eius quas facere aperiam odit reiciendis ipsum corrupti rem nisi illo laborum blanditiis facilis, sit, dolorem rerum aspernatur dicta magni ut quod! In maiores maxime quod iusto, voluptas eveniet, culpa similique perferendis ipsum quo excepturi et labore? Minus tempore voluptate nesciunt illum rerum quaerat, dignissimos quidem omnis fuga ad ipsa iste distinctio unde veniam totam at neque nisi labore doloremque est delectus vero placeat. Impedit beatae sint atque dolorem eius delectus, ullam minima debitis? Dolore, voluptatum minus voluptate vel praesentium hic id aperiam alias eum fugit nihil quo, ex beatae. Quasi beatae a nesciunt sunt nam dignissimos, sapiente voluptate maiores eveniet ipsam, eos nemo, ducimus obcaecati? Quod tempora consequuntur odio voluptatum voluptas ut illo qui praesentium, autem asperiores, reiciendis, inventore nam corrupti quidem ullam dignissimos harum alias voluptate ipsum porro! Quos excepturi eos aliquid et sunt voluptas dolores! Quam impedit aliquam soluta fuga, sint voluptatibus quod eveniet harum quia adipisci qui, autem, ipsam exercitationem pariatur voluptas nulla hic. Aperiam temporibus, illum accusamus fuga ut alias quisquam repellendus hic corrupti dolorum doloribus numquam quasi nam, autem error quis reiciendis dolor cumque corporis voluptatem placeat laborum? Blanditiis beatae similique nesciunt rem, voluptate natus recusandae quidem ducimus porro atque eaque fugiat magnam aut nostrum et sapiente eos corrupti animi enim dolorem sequi iste soluta facere unde. Inventore dolore reprehenderit eos maxime illum corrupti error voluptas sunt facere. Harum ipsa consectetur ea ad esse dolore excepturi laborum dolorem quis voluptatem, autem ipsum exercitationem modi cum asperiores, quasi et facere optio rerum delectus! Debitis maxime natus illum necessitatibus, aliquam voluptas quidem ipsa, saepe neque tempore, nobis sequi error id. Quam sapiente expedita sed repudiandae, officia sequi quia officiis. Sed ducimus, corrupti dolor magni animi consequatur numquam itaque cupiditate pariatur molestiae quidem minima nemo sit earum deserunt voluptatum repellat autem omnis porro. Nulla, vel. Repellat, vitae recusandae quia officia, amet voluptatibus esse accusamus qui eveniet explicabo ab mollitia voluptatum beatae sint dolores delectus ratione enim facilis non maxime? Officia in quas necessitatibus dolor veritatis facere assumenda magnam nostrum aperiam impedit sapiente adipisci animi fuga velit, tenetur, quis sequi nesciunt rem, excepturi magni sunt est! Officia doloribus voluptatum quae, sed veritatis labore voluptates temporibus quidem officiis accusantium nihil. Porro adipisci eligendi placeat vero impedit ab eum magnam libero sequi. Soluta deleniti voluptates explicabo id accusantium, perspiciatis fuga eos sit a facere nemo nobis accusamus sapiente labore nihil numquam, incidunt molestiae. Nostrum quos vel, ipsum ratione molestiae nemo autem quisquam aut corrupti tenetur. Pariatur soluta unde, vero officiis voluptatibus in ullam ipsum minima maiores aut saepe, veniam reprehenderit numquam, atque fugiat nihil vitae iste. Mollitia nam voluptatibus recusandae omnis saepe culpa sed. Esse porro laboriosam vero deleniti in eum, aspernatur quis tenetur dignissimos atque explicabo dolor incidunt id minima expedita molestiae ut laborum recusandae quisquam aliquam cum amet? Debitis adipisci unde amet distinctio in? Assumenda neque facilis quidem libero provident exercitationem expedita quaerat error iusto reprehenderit quod perspiciatis rerum sequi, molestiae repellendus reiciendis nobis accusantium, fugit inventore quas unde maxime? Assumenda voluptas porro facere sapiente quis amet ipsam, expedita fugit recusandae quibusdam, dicta voluptatem. Impedit veniam odit, officia modi dolorum obcaecati expedita blanditiis mollitia voluptas quos eligendi nulla fugit fuga aspernatur vitae, quia hic reiciendis dolorem neque excepturi voluptatem quaerat laborum iure ipsa. Vitae, quibusdam itaque deleniti iste, consectetur ratione, praesentium quam porro reiciendis ex distinctio. Harum adipisci culpa corporis iste ullam quidem consequatur deleniti ratione dolore iure. Inventore ratione debitis voluptatibus? Quam, enim facilis. Deserunt reiciendis perferendis possimus laboriosam ipsam modi est voluptas consequatur unde ex! Culpa illo earum dolores sed error necessitatibus blanditiis minus beatae tenetur qui, amet, sunt iusto laborum unde odio rem voluptates et! Mollitia inventore numquam autem omnis veniam quas alias exercitationem quia a. Dicta nam nihil magni blanditiis nemo quibusdam libero debitis atque quisquam harum aliquid nisi ducimus provident dolores numquam quos, a fugiat, autem odit! Culpa deleniti mollitia cupiditate vel? Quae aut cupiditate ratione? Unde perferendis maiores soluta laborum facere inventore quo expedita a nemo ut magnam esse maxime tenetur animi recusandae, et id, debitis commodi corrupti saepe quibusdam eum repellendus nam incidunt! Ad esse temporibus, officiis harum aperiam dolores excepturi nisi. Repellat ullam ipsa cumque praesentium officia voluptate unde adipisci iusto dicta? Harum laudantium aut iusto vel. Commodi deleniti dolore voluptates qui facere iste laboriosam necessitatibus accusantium aspernatur earum, tempore, dolorum vitae. Atque est itaque adipisci molestiae quos in, officia nulla culpa tempore fugiat consectetur enim reprehenderit ratione nesciunt ipsa? Quaerat omnis officia doloremque asperiores veritatis repellat quasi expedita, vero, ipsa incidunt repellendus nihil temporibus quae nesciunt modi recusandae distinctio iusto molestiae perspiciatis. Sunt praesentium aspernatur deleniti assumenda eligendi iusto minima aut sint ratione obcaecati eius laboriosam maiores ipsa, dolor aperiam voluptatum nulla earum, itaque eaque eos labore repellendus veniam id. Molestias ab optio delectus doloremque amet explicabo error beatae nobis asperiores deserunt debitis blanditiis eaque, nam voluptate fugiat earum nostrum aspernatur, sunt est ut praesentium inventore! Officia voluptates corporis voluptate consequatur quo dolorum! Quidem repellendus suscipit qui quam necessitatibus dignissimos similique quod at asperiores magni, vel pariatur. Enim perspiciatis eaque eligendi quam dolore harum voluptate cumque quos sunt fuga reprehenderit error laborum facere nisi adipisci, minus nostrum optio molestias suscipit sapiente totam? Alias distinctio quod eum inventore eaque repudiandae eligendi. Neque, sequi quidem temporibus hic rerum aperiam. Fuga tempora amet placeat nemo quaerat in sit nihil accusantium animi, ex mollitia impedit neque commodi voluptatibus quas. Cumque quasi aut qui assumenda! Totam blanditiis, rem distinctio quaerat nobis illo beatae maxime ut dolorem reprehenderit quae assumenda excepturi debitis, doloribus voluptas vel neque veritatis asperiores vero animi ipsam harum ab! Ipsa, recusandae repellendus id consequuntur amet quia iusto est vel neque commodi, error omnis cumque earum necessitatibus dolore! Consectetur esse unde harum at aut minima soluta in ipsa doloremque, mollitia quis! Atque vitae molestiae, voluptate doloremque provident reiciendis? Earum minus architecto vitae porro facere mollitia a laudantium. Vel quos optio eius vero illo eos reprehenderit autem consequatur, voluptatem nesciunt ullam! Aut veritatis dolorum natus saepe, recusandae iure illum dicta at nisi eveniet minus cum nulla molestiae similique quasi debitis ad commodi vero! Enim possimus nihil ab nisi ad optio quo? Numquam maxime magnam quae perspiciatis nemo sequi cumque similique asperiores. Tempore ipsum aut fugiat nemo laborum quos voluptate numquam similique. Atque placeat amet pariatur necessitatibus natus assumenda iusto officia eum ullam dolores molestiae soluta vitae debitis ad laudantium enim expedita doloremque, cum commodi porro veniam. Commodi animi obcaecati pariatur labore consequatur cupiditate debitis fuga iure id odio, incidunt iusto minima? Quia pariatur sapiente, corporis aliquid mollitia necessitatibus eaque enim vitae quis.
-                </div>
-            </section>
-        </>
+      <div className='custom-container py-[150px]'>
+        <Loading />
+      </div>
     )
+  }
+
+  if (isError) {
+    return (
+      <div className='custom-container py-[150px]'>
+        <Error />
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <Head>
+        <title>{tourPackage[replaceWithLocale(router, "from_")]}	&rarr; {tourPackage[replaceWithLocale(router, "where_")]}</title>
+      </Head>
+      <section className='sm:pt-[150px] pt-[100px] pb-[50px] flex flex-col gap-6 custom-container'>
+        <div className='w-full'>
+          <Image src={'/images/big-placeholder.png'} alt='placeholder' width={500} height={500} className='w-full rounded-[20px]' />
+        </div>
+        <div className='sm:w-fit w-full rounded-[5px] text-white flex sm:flex-row flex-col sm:items-center items-start sm:gap-4 gap-2'>
+          <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main px-4 py-4 rounded-[10px]'>
+            <Plane fatherClass={'fill-white rotate-[50deg]'} />
+            <TextSubtitle className={"!text-white capitalize"}>{t("openpackage.from")}: <span className='font-semibold'>{tourPackage[replaceWithLocale(router, "from_")]}</span></TextSubtitle>
+          </div>
+          <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main px-4 py-4 rounded-[10px]'>
+            <Plane fatherClass={'fill-white rotate-[130deg]'} />
+            <TextSubtitle className={"!text-white capitalize"}>{t("openpackage.where")}: <span className='font-semibold'>{tourPackage[replaceWithLocale(router, "where_")]}</span></TextSubtitle>
+          </div>
+          <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main px-4 py-4 rounded-[10px]'>
+            <IconMoney fatherClass={''} />
+            <TextSubtitle className={"!text-white capitalize"}>{t("openpackage.price")}: <span className='font-semibold'>{tourPackage.price} so&apos;m</span></TextSubtitle>
+          </div>
+        </div>
+        <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
+          <TextSubtitle className={'text-start !text-black'}>{tourPackage[replaceWithLocale(router, "description_")]}</TextSubtitle>
+        </div>
+        <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
+          <TextSubtitle className={'text-start !text-black'}>{t("openpackage.from")}: {tourPackage[replaceWithLocale(router, "from_")]}</TextSubtitle>
+        </div>
+        <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
+          <TextSubtitle className={'text-start !text-black'}>{t("openpackage.where")}: {tourPackage[replaceWithLocale(router, "where_")]}</TextSubtitle>
+        </div>
+        <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
+          <TextSubtitle className={'text-start !text-black'}>{t("openpackage.days")}: {tourPackage.days
+          } {t("openpackage.day")} / {tourPackage.days - 1} {t("openpackage.night")}</TextSubtitle>
+        </div>
+        <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
+          <TextSubtitle className={'text-start !text-black'}>{t("openpackage.fly")}: {tourPackage.fly_date}</TextSubtitle>
+        </div>
+        <div className='bg-main p-4 border rounded-[10px] flex flex-col gap-2'>
+          <TextSubtitle className={'text-start !text-white'}>{t("openpackage.price")}: {tourPackage.price} So&apos;m</TextSubtitle>
+        </div>
+        <Link href={'/'}>
+          <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main/[0.03] p-4 border border-main rounded-[10px]'>
+            <IconTelegram childClass={'!stroke-main'} />
+            <TextSubtitle className={"!text-black capitalize"}>{t('openpackage.manager')}</TextSubtitle>
+          </div>
+        </Link>
+      </section>
+    </>
+  )
 }
 
 export async function getServerSideProps({ locale }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, [
-                'common'
-            ])),
-        },
-    }
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common'
+      ])),
+    },
+  }
 }
 
-export default Open
+export default OpenDirection

@@ -109,7 +109,7 @@ const SpecialPackages = () => {
                   className="w-full h-fit rounded-[20px]"
                   onClick={() => router.push({
                     pathname: '/view/special/[id]',
-                    query: { id: i, whereFrom: "tashkent", where: "jidda" }
+                    query: { id: "0d25be44-ab87-4585-a602-e071edee2122" }
                   })}
                 />
               </SwiperSlide>

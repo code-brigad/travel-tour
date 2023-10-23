@@ -78,6 +78,25 @@
         "reason1": "Bu aeroportga samolyotlar uchmaydi.",
         "reason2": "Kiritilgan sana va kunlarni tekshiring."
     },
+    "ui": {
+        "error": {
+            "title": "Ma'lumotlar yuklanishida xatolik!",
+            "desc": "Qaytadan urinib ko'ring"
+        },
+        "loading": "Yuklanmoqda...",
+        "nodata": "Tur paketlar hozirda mavjud emas"
+    },
+    "openpackage": {
+        "from": "Qayerdan",
+        "where": "Qayerga",
+        "price": "Narx",
+        "days": "Sayohat davomiyligi",
+        "contact": "Menejer bilan bog'lanish",
+        "day": "kun",
+        "night": "tun",
+        "fly": "Uchish sanasi",
+        "manager": "Menejer bilan bog'lanish"
+    },
     "footer": {
         "paket": "Tur paket tayyorlash",
         "special": "Maxsus tur paketlar",
