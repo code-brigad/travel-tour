@@ -50,12 +50,7 @@ const SimplePackages = () => {
             return (
               <li key={data.id}>
                 <Link
-                  href={{
-                    pathname: "[id]",
-                    query: {
-                      id: data.id,
-                    },
-                  }}
+                  href={`${data.id}`}
                 >
                   <div className="cursor-pointer w-full h-auto">
                     <Image

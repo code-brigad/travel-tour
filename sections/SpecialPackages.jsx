@@ -101,7 +101,7 @@ const SpecialPackages = () => {
         >
           {packages.map((pack, i) => {
             return (
-              <SwiperSlide className="w-full h-fit cursor-pointer">
+              <SwiperSlide className="w-full h-fit cursor-pointer" key={i}>
                 <Link
                   href={{
                     pathname: "/view/special/[id]",

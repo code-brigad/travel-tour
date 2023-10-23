@@ -1,5 +1,3 @@
-"use client"
-
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router';
@@ -15,7 +13,7 @@ import axios from "@/config/axios.config"
 import Link from 'next/link';
 import { Error, Loading } from '@/components';
 
-const Open = () => {
+const DirDetails = ({ id }) => {
   const { t, i18n } = useTranslation('common')
   const router = useRouter()
   const [tourPackage, setTourPackage] = useState([]);
@@ -26,7 +24,7 @@ const Open = () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const { data } = await axios.get(`travel/${router.query.id}`);
+      const { data } = await axios.get(`travel/${id}`);
       setTourPackage(data);
       setIsLoading(false);
       setIsError(false);
@@ -109,14 +107,4 @@ const Open = () => {
   )
 }
 
-export async function getServerSideProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        'common'
-      ])),
-    },
-  }
-}
-
-export default Open
+export default DirDetails
