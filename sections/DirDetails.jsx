@@ -20,6 +20,8 @@ const DirDetails = ({ id }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  console.log(tourPackage);
+
   const getPackages = async () => {
     setIsLoading(true);
     setIsError(false);
