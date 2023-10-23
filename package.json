@@ -12,11 +12,9 @@
     "@pbe/react-yandex-maps": "^1.2.5",
     "antd": "^5.10.0",
     "axios": "^1.5.1",
-    "core-js": "^3.33.1",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
     "i18next": "^23.5.1",
-    "moment": "^2.29.4",
     "next": "13.5.4",
     "next-i18next": "^14.0.3",
     "react": "^18",
@@ -33,10 +31,5 @@
     "eslint-config-next": "13.5.4",
     "postcss": "^8",
     "tailwindcss": "^3"
-  },
-  "browser": {
-    "fs": false,
-    "os": false,
-    "path": false
   }
 }
