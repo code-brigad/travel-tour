@@ -17,6 +17,7 @@ const Direction = () => {
   const { t, i18n } = useTranslation("common");
   const router = useRouter();
   const [tourPackage, setTourPackage] = useState([]);
+  console.log(tourPackage, "tour");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
