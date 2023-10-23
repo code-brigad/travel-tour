@@ -9,11 +9,11 @@ import { replaceWithLocale } from "@/layouts/replaceWithLocale"
 import Head from 'next/head';
 import Image from 'next/image';
 import Plane from '@/icons/Plane';
-import axios from "@/config/axios.config"
+import axios from "axios"
 import Link from 'next/link';
 import { Error, Loading } from '@/components';
 
-const OpenDirection = () => {
+const Open = () => {
   const { t, i18n } = useTranslation('common')
   const router = useRouter()
   const [tourPackage, setTourPackage] = useState([]);
@@ -24,7 +24,7 @@ const OpenDirection = () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const { data } = await axios.get(`travel/${router.query.id}`);
+      const { data } = await axios.get(`https://tour-spsn.onrender.com/api/travel/${router.query.id}`);
       setTourPackage(data);
       setIsLoading(false);
       setIsError(false);
@@ -117,4 +117,4 @@ export async function getServerSideProps({ locale }) {
   }
 }
 
-export default OpenDirection
+export default Open

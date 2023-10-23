@@ -10,10 +10,10 @@ import { replaceWithLocale } from '@/layouts/replaceWithLocale';
 import Head from 'next/head';
 import Image from 'next/image';
 import Plane from '@/icons/Plane';
-import axios from "@/config/axios.config"
+import axios from "axios"
 import Link from 'next/link';
 
-const OpenSpecial = () => {
+const Open = () => {
   const { t, i18n } = useTranslation('common')
   const router = useRouter()
   const [tourPackage, setTourPackage] = useState([]);
@@ -24,7 +24,7 @@ const OpenSpecial = () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const { data } = await axios.get(`travel/${router.query.id}`);
+      const { data } = await axios.get(`https://tour-spsn.onrender.com/api/travel/${router.query.id}`);
       setTourPackage(data);
       setIsLoading(false);
       setIsError(false);
@@ -66,7 +66,7 @@ const OpenSpecial = () => {
         <div className='sm:w-fit w-full rounded-[5px] text-white flex sm:flex-row flex-col sm:items-center items-start sm:gap-4 gap-2'>
           <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main px-4 py-4 rounded-[10px]'>
             <Plane fatherClass={'fill-white rotate-[50deg]'} />
-            <TextSubtitle className={"!text-white capitalize"}>{t("Specialpackage.from")}: <span className='font-semibold'>{tourPackage[replaceWithLocale(router, "from_")]}</span></TextSubtitle>
+            <TextSubtitle className={"!text-white capitalize"}>{t("openpackage.from")}: <span className='font-semibold'>{tourPackage[replaceWithLocale(router, "from_")]}</span></TextSubtitle>
           </div>
           <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main px-4 py-4 rounded-[10px]'>
             <Plane fatherClass={'fill-white rotate-[130deg]'} />
@@ -117,4 +117,4 @@ export async function getServerSideProps({ locale }) {
   }
 }
 
-export default OpenSpecial
+export default Open
