@@ -38,21 +38,21 @@ const Open = () => {
     getPackages();
   }, [router]);
 
-  if (isLoading) {
-    return (
-      <div className='custom-container py-[150px]'>
-        <Loading />
-      </div>
-    )
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className='custom-container py-[150px]'>
+  //       <Loading />
+  //     </div>
+  //   )
+  // }
 
-  if (isError) {
-    return (
-      <div className='custom-container py-[150px]'>
-        <Error />
-      </div>
-    )
-  }
+  // if (isError) {
+  //   return (
+  //     <div className='custom-container py-[150px]'>
+  //       <Error />
+  //     </div>
+  //   )
+  // }
 
   return (
     <>
