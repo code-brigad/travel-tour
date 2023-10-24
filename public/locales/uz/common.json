@@ -111,7 +111,7 @@
             "name": {
                 "length": "4 belgidan kam",
                 "max": "Maksimal belgilar soni 30 ta",
-                "req": "Ism familiya kiritilmagan"
+                "req": "Ism familiya kiritilmadi"
             },
             "phone": {
                 "length": "Raqam xato kiritildi",

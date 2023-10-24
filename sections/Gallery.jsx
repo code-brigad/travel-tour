@@ -38,7 +38,7 @@ const Gallery = () => {
                 width={500}
                 height={500}
                 alt="1"
-                className="sm:rounded-[30px] rounded-[20px]"
+                className="md:rounded-[30px] rounded-[15px]"
               />
             </motion.li>
             <motion.li
@@ -62,7 +62,7 @@ const Gallery = () => {
                 width={500}
                 height={500}
                 alt="1"
-                className="sm:rounded-[30px] rounded-[20px]"
+                className="md:rounded-[30px] rounded-[15px]"
               />
             </motion.li>
           </ul>
@@ -89,7 +89,7 @@ const Gallery = () => {
             width={500}
             height={500}
             alt="1"
-            className="sm:rounded-[30px] rounded-[20px] w-full"
+            className="md:rounded-[30px] rounded-[15px] w-full"
           />
         </motion.li>
         <li className="flex items-center justify-center">
@@ -115,7 +115,7 @@ const Gallery = () => {
                 width={500}
                 height={500}
                 alt="1"
-                className="sm:rounded-[30px] rounded-[20px]"
+                className="md:rounded-[30px] rounded-[15px]"
               />
             </motion.li>
             <motion.li
@@ -139,7 +139,7 @@ const Gallery = () => {
                 width={500}
                 height={500}
                 alt="1"
-                className="sm:rounded-[30px] rounded-[20px]"
+                className="md:rounded-[30px] rounded-[15px]"
               />
             </motion.li>
           </ul>

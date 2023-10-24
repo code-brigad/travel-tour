@@ -32,13 +32,17 @@ const SpecialPackages = () => {
     getPackages();
   }, []);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (isError) {
+    return <Error />;
+  }
+
   return (
     <section className="custom-container pt-8 flex flex-col gap-8">
-      {isLoading ? (
-        <Loading />
-      ) : isError ? (
-        <Error />
-      ) : packages.filter((e) => e.type == "special").length == 0 ? (
+      {packages.filter((e) => e.type == "special").length == 0 ? (
         ""
       ) : (
         <motion.ul
@@ -75,7 +79,10 @@ const SpecialPackages = () => {
               .filter((e) => e.type == "special")
               .map((data, i) => {
                 return (
-                  <SwiperSlide className="w-full !h-full cursor-pointer" key={data.id}>
+                  <SwiperSlide
+                    className="w-full !h-full cursor-pointer"
+                    key={data.id}
+                  >
                     <Link
                       href={{
                         pathname: "/view/special/[id]",
