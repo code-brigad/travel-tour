@@ -49,8 +49,8 @@ const Locations = () => {
           <div className='w-full border-b'></div>
           <div className='p-2 flex flex-col gap-2'>
             <TextSubtitle className='text-start !text-black'><span className='text-main'>{t('locations.adress')}</span>: {t('locations.location')}</TextSubtitle>
-            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('locations.phone')}</span>: <Link href="tel: +998900000000">+998 90 000 00 00</Link></TextSubtitle>
-            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('about.info6')}:</span> info@site.uz</TextSubtitle>
+            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('locations.phone')}</span>: <Link href="tel: +998909993023">+998 90 999 30 23</Link></TextSubtitle>
+            <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('about.info6')}:</span> yordam@tour-house.uz</TextSubtitle>
           </div>
         </div>
         <YMaps>

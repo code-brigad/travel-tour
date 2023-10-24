@@ -54,7 +54,7 @@ const NavbarDetails = () => {
     >
       <div className="custom-container py-4 flex flex-row justify-between items-center">
         <Link href={"/"} className={`${unbounded.className}`}>
-          Sayohat
+          Travel House
         </Link>
         <ul className="flex flex-row items-center gap-2">
           {links.map((link) => {
@@ -149,7 +149,7 @@ export const Mobile = ({ menuOpen, setMenuOpen }) => {
             <div className="w-full">
               <p className="text-center">
                 <Link href={"/"}>
-                  <TextSubtitle className={'!text-white'}>&copy; Sayohat 2023</TextSubtitle>
+                  <TextSubtitle className={'!text-white'}>&laquo; Travel House 777 &raquo;</TextSubtitle>
                 </Link>
               </p>
             </div>

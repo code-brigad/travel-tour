@@ -72,7 +72,7 @@ const SpecialPackages = () => {
                       }}
                     >
                       <Image
-                        src={"/images/big-placeholder.png"}
+                        src={data.image}
                         alt={data}
                         width={1000}
                         height={1000}

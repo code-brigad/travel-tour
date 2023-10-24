@@ -53,10 +53,10 @@
     "about": {
         "title": "Biz haqimizda",
         "pageTitle": "Kompaniyamiz haqida ma'lumotlar",
-        "info1": "Sayohat agentligimiz --- nomi bilan faoliyat yuritadi. Bizning kompaniya Toshkent viloyati, Bekobod shahrida joylashgan va sayohat xizmatlarini taklif qilish bo'yicha mutaxassislikka ega. Biz sizning sayohatlaringizni o'rganib, sizning talablaringiz va istaklaringiz asosida eng yaxshi sayohat variantlarini taklif qilishga intilamiz.",
-        "info2": "--- kompaniyasi sifatli xizmatlar va shoshilinch sayohat tajribasi ta'minlashga ahamiyat beradi. Bizning xodimlarimiz yetakchi mutaxassislardan iborat, ular sayohat sohasida ko'p yillik tajribaga ega va sayohatlar bo'yicha keng bilim va ma'lumotlarga ega. Bizning kompaniyamiz sayohatlar, aviachiptalar, mexaniklar, otel mahsulotlari, sayohat paketlari va boshqa sayohat xizmatlarini taklif qiladi.",
+        "info1": "Sayohat agentligimiz Travel House 777 nomi bilan faoliyat yuritadi. Bizning kompaniya Toshkent viloyati, Bekobod shahrida joylashgan va sayohat xizmatlarini taklif qilish bo'yicha mutaxassislikka ega. Biz sizning sayohatlaringizni o'rganib, sizning talablaringiz va istaklaringiz asosida eng yaxshi sayohat variantlarini taklif qilishga intilamiz.",
+        "info2": "Travel House 777 kompaniyasi sifatli xizmatlar va shoshilinch sayohat tajribasi ta'minlashga ahamiyat beradi. Bizning xodimlarimiz yetakchi mutaxassislardan iborat, ular sayohat sohasida ko'p yillik tajribaga ega va sayohatlar bo'yicha keng bilim va ma'lumotlarga ega. Bizning kompaniyamiz sayohatlar, aviachiptalar, mexaniklar, otel mahsulotlari, sayohat paketlari va boshqa sayohat xizmatlarini taklif qiladi.",
         "info3": "Bog'lanish uchun",
-        "info4": "--- Sayohat Agentligi",
+        "info4": "Travel House 777 Sayohat Agentligi",
         "info5": "Telefon",
         "info6": "Elektron pochta",
         "socials": {
@@ -98,8 +98,8 @@
         "manager": "Menejer bilan bog'lanish"
     },
     "footer": {
-        "paket": "Tur paket tayyorlash",
+        "paket": "Tur paketlar",
         "special": "Maxsus tur paketlar",
-        "help": "Yordam"
+        "help": "Kompaniya haqida"
     }
 }

@@ -31,7 +31,7 @@ const FooterDetails = () => {
           </li>
         </ul>
         <TextSubtitle className={"!text-black"}>
-          &copy; Sayohat {new Date().getFullYear()}
+          &laquo; Travel House 777 &raquo;
         </TextSubtitle>
       </div>
       <div className="bg-main text-white py-4 flex items-center">

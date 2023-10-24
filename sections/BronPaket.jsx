@@ -1,50 +1,47 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { DatePicker } from "antd";
-import getCountriesApi from "@/layouts/getCountriesApi";
+import axios from "@/config/axios.config";
 
 const BronPaket = () => {
   const { t } = useTranslation("common");
-  const [where, setWhere] = useState({
-    value: "",
-    selected: "",
-    open: false
-  });
+  const [from, setFrom] = useState("")
+  const [fromError, setFromError] = useState(false)
+  const [where, setWhere] = useState("")
   const [whereError, setWhereError] = useState(false)
-  const [whereError2, setWhereError2] = useState(false)
 
-  const [where2, setWhere2] = useState({
-    value: "",
-    selected: "",
-    open: false
-  });
-
-  const handleSubmit = () => {
-    if (where.selected.length <= 3 && where2.selected.length <= 3) {
-      setWhereError(!whereError)
-      setWhereError2(!whereError2)
-      console.log("all error");
+  const handleSubmit = async () => {
+    if (where.length <= 3 && from.length <= 3) {
+      setFromError(true)
+      setWhereError(true)
       return
     }
 
-    if (where.selected.length <= 3) {
-      setWhereError(!whereError)
-      console.log("where");
+    if (where.length <= 3) {
+      setWhere(true)
       return
     }
 
-    if (where2.selected.length <= 3) {
-      setWhereError2(!whereError2)
-      console.log("where 2");
+    if (from.length <= 3) {
+      setFromError(true)
       return
     }
-    setWhereError(!whereError)
-    setWhereError2(!whereError2)
+
+    const data = {
+      "from_uz": from,
+      "where_uz": where,
+    }
+
+    try {
+      const response = await axios.get("/travel/search", data)
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+
   };
-
-  const whereData = getCountriesApi(where.value);
-  const whereData2 = getCountriesApi(where2.value);
+  
   const handleGetGoDate = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -64,22 +61,18 @@ const BronPaket = () => {
             <input
               type="text"
               name="whereFrom"
-              className={`${classes} ${whereError == true && "ring-2 ring-red-600"} w-full h-full rounded-l-[10px] md:rounded-r-none rounded-r-[10px]`}
+              className={`${classes} ${
+                fromError == true && "ring-2 ring-red-600"
+              } w-full h-full rounded-l-[10px] md:rounded-r-none rounded-r-[10px]`}
               placeholder={t("hero.paket.input.where")}
-              value={where.value}
-              onChange={(e) => {
-                setWhere({
-                  value: e.target.value,
-                  selected: where.selected,
-                  open: where.open,
-                });
-              }}
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
             />
-            {where.value.length !== 0 && (
+            {from.length !== 0 && (
               <>
                 <svg
                   onClick={() =>
-                    setWhere({ value: "", selected: "", open: false })
+                    setWhere("")
                   }
                   className="clear cursor-pointer inline z-40 absolute top-[50%] right-[14px] fill-gray-400 translate-y-[-50%]"
                   fill-rule="evenodd"
@@ -93,66 +86,21 @@ const BronPaket = () => {
                 </svg>
               </>
             )}
-            <AnimatePresence>
-              {whereData.countries.length > 0 &&
-              where.selected !== where.value ? (
-                <>
-                  <motion.ul
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.1 }}
-                    className="absolute top-[76px] left-0 bg-white sm:w-[300px] w-full rounded-[8px] text-black flex flex-col shadow-lg z-30"
-                  >
-                    {whereData.countries.map((country) => {
-                      return (
-                        <motion.li
-                          key={country.id}
-                          className="p-3 flex flex-row last:border-b-[0px] items-center gap-2 truncate border-b cursor-pointer hover:bg-main/10"
-                          onClick={() => {
-                            setWhere({
-                              value: country.name,
-                              selected: country.name,
-                              open: false,
-                            });
-                          }}
-                        >
-                          <p className="font-medium text-[14px]">
-                            {country.name},
-                          </p>
-                          <p className="text-[14px] opacity-50">
-                            {country.country_name}
-                          </p>
-                        </motion.li>
-                      );
-                    })}
-                  </motion.ul>
-                </>
-              ) : (
-                ""
-              )}
-            </AnimatePresence>
           </div>
           <div className="w-full input2 relative">
             <input
               type="text"
-              className={`${classes} ${whereError2 == true && "ring-2 ring-red-600"} w-full h-full md:rounded-none rounded-[10px]`}
+              className={`${classes} ${
+                whereError == true && "ring-2 ring-red-600"
+              } w-full h-full md:rounded-none rounded-[10px]`}
               placeholder={t("hero.paket.input.where2")}
-              value={where2.value}
-              onChange={(e) => {
-                setWhere2({
-                  value: e.target.value,
-                  selected: where2.selected,
-                  open: where2.open,
-                });
-              }}
+              value={where}
+              onChange={(e) => setWhere(e.target.value)}
             />
-            {where2.value.length !== 0 && (
+            {where.length !== 0 && (
               <>
                 <svg
-                  onClick={() =>
-                    setWhere2({ value: "", selected: "", open: false })
-                  }
+                  onClick={() => setWhere("")}
                   className="clear2 cursor-pointer inline z-40 absolute top-[50%] right-[14px] fill-gray-400 translate-y-[-50%]"
                   fill-rule="evenodd"
                   viewBox="64 64 896 896"
@@ -165,39 +113,6 @@ const BronPaket = () => {
                 </svg>
               </>
             )}
-            <AnimatePresence>
-              {whereData2.countries.length > 0 &&
-              where2.selected !== where2.value ? (
-                <>
-                  <motion.ul className="absolute top-[76px] left-0 bg-white sm:w-[300px] w-full rounded-[8px] text-black flex flex-col shadow-lg z-30">
-                    {whereData2.countries.map((country) => {
-                      return (
-                        <li
-                          key={country.id}
-                          className="p-3 flex flex-row last:border-b-[0px] items-center gap-2 truncate border-b cursor-pointer hover:bg-main/10"
-                          onClick={() =>
-                            setWhere2({
-                              value: country.name,
-                              selected: country.name,
-                              open: false,
-                            })
-                          }
-                        >
-                          <p className="font-medium text-[14px]">
-                            {country.name},
-                          </p>
-                          <p className="text-[14px] opacity-50">
-                            {country.country_name}
-                          </p>
-                        </li>
-                      );
-                    })}
-                  </motion.ul>
-                </>
-              ) : (
-                ""
-              )}
-            </AnimatePresence>
           </div>
           <div className="w-full">
             <DatePicker

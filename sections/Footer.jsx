@@ -12,18 +12,18 @@ const Footer = () => {
         <ul className="flex sm:flex-row flex-col text-center gap-2">
           <li className="text-[14px] hover:text-main">
             <TextSubtitle className={"!text-black hover:!text-main"}>
-              <Link href={"/"}>{t("footer.paket")}</Link>
+              <Link href={"/view/direction"}>{t("footer.paket")}</Link>
             </TextSubtitle>
           </li>
           <li className="sm:block hidden">&bull;</li>
           <li className="text-[14px] hover:text-main">
             <TextSubtitle className={"!text-black hover:!text-main"}>
-              <Link href={"/"}>{t("footer.special")}</Link>
+              <Link href={"/view/special"}>{t("footer.special")}</Link>
             </TextSubtitle>
           </li>
           <li className="sm:block hidden">&bull;</li>
           <li className="text-[14px] hover:text-main">
-            <Link href={"/info"}>
+            <Link href={"/view/about"}>
               <TextSubtitle className={"!text-black hover:!text-main"}>
                 {t("footer.help")}
               </TextSubtitle>
@@ -31,12 +31,12 @@ const Footer = () => {
           </li>
         </ul>
         <TextSubtitle className={"!text-black"}>
-          &copy; Sayohat {new Date().getFullYear()}
+          &laquo; Travel House 777 &raquo;
         </TextSubtitle>
       </div>
       <div className="bg-main text-white py-4 flex items-center">
         <Link
-          href={"https://code-brigade.vercel.app/"}
+          href={"https://code-brigade.uz/"}
           target="_blank"
           className="text-center w-full"
         >

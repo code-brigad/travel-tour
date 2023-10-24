@@ -32,6 +32,8 @@ const SimplePackages = () => {
     getPackages();
   }, []);
 
+  console.log(packages);
+
   return (
     <section className="custom-container py-8 flex flex-col gap-8">
       <div>
@@ -57,11 +59,11 @@ const SimplePackages = () => {
                     }}
                   >
                     <Image
-                      src={"/images/placeholder.png"}
+                      src={data.image}
                       alt={data.createdAt}
                       width={200}
                       height={200}
-                      className="w-full h-full rounded-[20px]"
+                      className="w-full h-full aspect-square border object-cover rounded-[20px]"
                     />
                   </Link>
                 </div>
@@ -77,7 +79,7 @@ const SimplePackages = () => {
                     stroke-width="1.5"
                     viewBox="0 0 24 24"
                     color="#000000"
-                    className="fill-gray-400 sm:block hidden"
+                    className="fill-gray-400 sm:block hidden rotate-[40deg]"
                   >
                     <path
                       className="stroke-gray-400"

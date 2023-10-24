@@ -17,6 +17,8 @@ const Direction = () => {
   const [packages, setPackages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [srcWhere, setSrcWhere] = useState("")
+  const [srcFrom, setSrcFrom] = useState("a")
 
   const getPackages = async () => {
     setIsLoading(true);
@@ -48,7 +50,7 @@ const Direction = () => {
             className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${unbounded.className}`}
             text={t("direction.title")}
           />
-          <BronPaket />
+          <BronPaket setPackages={setPackages} packages={packages} />
         </div>
       </section>
       <section className={`custom-container py-[60px] ${mulish.className}`}>
@@ -62,7 +64,7 @@ const Direction = () => {
                 <li className='text-[14px]'><TextSubtitle className={'!text-black'}>{t('direction.reason2')}</TextSubtitle></li>
               </ul>
             </div>
-            : <ul className="grid md:grid-cols-4 grid-cols-2 gap-3">
+            : <ul className="w-full flex flex-col gap-8">
               {packages?.map((data) => {
                 return (
                   <li key={data.id}>
@@ -73,17 +75,13 @@ const Direction = () => {
                           query: { id: data.id },
                         }}
                       >
-                        <Image
-                          src={"/images/placeholder.png"}
-                          alt={data.createdAt}
-                          width={200}
-                          height={200}
-                          className="w-full h-full rounded-[20px]"
-                        />
+                        <div className='w-full'>
+                          <Image src={data.image} alt='placeholder' width={500} height={500} className='w-full rounded-[20px] h-[200px] object-cover object-center' />
+                        </div>
                       </Link>
                     </div>
                     <TextHeading className={"capitalize"}>
-                      {data.where_uz}
+                      {data.from_uz} {data.where_uz}
                     </TextHeading>
                     <div className="flex flex-row gap-2">
                       <svg
@@ -106,7 +104,7 @@ const Direction = () => {
                       </svg>
                       <TextSubtitle className="!text-black text-start">
                         {i18n.language == "uz" ? (
-                          <>{data.price}mln dan boshlab</>
+                          <>{data.price}mln dan boshlab / {data.fly_date.slice(0, 10)}</>
                         ) : (
                           <>Начиная с {data.price} млн сум</>
                         )}

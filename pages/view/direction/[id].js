@@ -73,9 +73,6 @@ const OpenDirection = () => {
     )
   }
 
-  const image = tourPackage.image?.slice(6,)
-  console.log(image);
-
   return (
     <LayoutForDetails>
       <Head>
@@ -83,7 +80,7 @@ const OpenDirection = () => {
       </Head>
       <section className='sm:pt-[150px] pt-[100px] pb-[50px] flex flex-col gap-6 custom-container'>
         <div className='w-full'>
-          <Image src={'/images/big-placeholder.png'} alt='placeholder' width={500} height={500} className='w-full rounded-[20px]' />
+          <Image src={tourPackage.image} alt='placeholder' width={500} height={500} className='w-full rounded-[20px] h-[200px] object-cover object-center' />
         </div>
         <div className='sm:w-fit w-full rounded-[5px] text-white flex sm:flex-row flex-col sm:items-center items-start sm:gap-4 gap-2'>
           <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main px-4 py-4 rounded-[10px]'>

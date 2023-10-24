@@ -74,13 +74,13 @@ const About = () => {
             <li><TextSubtitle className={'!text-black text-start'}>{t('about.info4')}</TextSubtitle></li>
             <li className='hover:text-main w-fit'>
               <TextSubtitle className='text-main text-start inline'>{t('about.info5')}:</TextSubtitle>{" "}
-              <Link href="tel: +998900000000">
-                <TextSubtitle className={'inline !text-black hover:!text-main'}>+998 90 000 00 00</TextSubtitle>
+              <Link href="tel: +998909993023">
+                <TextSubtitle className={'inline !text-black hover:!text-main'}>+998 90 999 30 23</TextSubtitle>
               </Link>
             </li>
             <li className='w-fit'>
               <TextSubtitle className='!text-main inline'>{t('about.info6')}:</TextSubtitle>{" "}
-              <Link href=""><TextSubtitle className={'!text-black inline'}>info@site.uz</TextSubtitle></Link>
+              <Link href=""><TextSubtitle className={'!text-black inline'}>yordam@tour-house.uz</TextSubtitle></Link>
             </li>
             <li className=' w-fit'>
               <TextSubtitle className='!text-main text-start inline'>
