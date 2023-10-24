@@ -112,12 +112,9 @@ export async function getStaticProps(props) {
   const res = await axios.get(`https://tour-spsn.onrender.com/api/travel/${props.params.id}`)
   const datas = await res.data
   return {
-    props: {
-      tourPackage: datas,
-      ...(await serverSideTranslations(props.locale, [
-        'common'
-      ])),
-    },
+    datas,
+    paths: ['/view/direction/[id].jsx'],
+    fallback: 'blocking'
   }
 }
 
