@@ -68,6 +68,7 @@ const Gallery = () => {
           </ul>
         </li>
       </ul>
+      {/* dns */}
     </section>
   );
 };
