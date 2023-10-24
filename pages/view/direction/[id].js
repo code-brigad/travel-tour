@@ -109,34 +109,14 @@ const OpenDirection = () => {
   )
 }
 
-// export async function getServerSideProps(props) {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(props.locale, [
-//         'common'
-//       ])),
-//     },
-//   }
-// }
-
-export const getStaticPaths = async ({ locales }) => {
-  const res = await fetch(`${server}/api/posts`);
-  const posts = await res.json();
-
-  const ids = posts.map((post) => post.id);
-  const paths = ids
-    .map((id) =>
-      locales.map((locale) => ({
-        params: { id: id.toString() },
-        locale, //locale should not be inside `params`
-      }))
-    )
-    .flat(); // to avoid nested arrays
-
+export async function getServerSideProps({ locale }) {
   return {
-    paths,
-    fallback: false,
-  };
-};
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common'
+      ])),
+    },
+  }
+}
 
 export default OpenDirection
