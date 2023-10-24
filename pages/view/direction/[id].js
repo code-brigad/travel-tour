@@ -119,4 +119,24 @@ const OpenDirection = () => {
 //   }
 // }
 
+export const getStaticPaths = async ({ locales }) => {
+  const res = await fetch(`${server}/api/posts`);
+  const posts = await res.json();
+
+  const ids = posts.map((post) => post.id);
+  const paths = ids
+    .map((id) =>
+      locales.map((locale) => ({
+        params: { id: id.toString() },
+        locale, //locale should not be inside `params`
+      }))
+    )
+    .flat(); // to avoid nested arrays
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
 export default OpenDirection
