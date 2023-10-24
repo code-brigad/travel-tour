@@ -1,4 +1,3 @@
-import { Footer, Navbar } from '@/sections'
 import { appWithTranslation } from "next-i18next";
 import { ConfigProvider } from 'antd';
 import { mulish } from '@/public/assets/fonts';
@@ -24,9 +23,7 @@ function App({ Component, pageProps }) {
         },
       }}
     >
-      <Navbar />
       <Component {...pageProps} />
-      <Footer />
     </ConfigProvider>
   </main>
 }

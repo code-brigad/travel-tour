@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 import { TextHeading, TextSubtitle } from '@/theme/Text';
+import LayoutForAll from '@/components/LayoutForAll';
 
 const packages = [
     {
@@ -55,7 +56,7 @@ const packages = [
 const Special = () => {
     const { t, i18n } = useTranslation('common')
     return (
-        <>
+        <LayoutForAll>
             <Head>
                 <title>Sayohat - {t('cpecial.desc')}</title>
             </Head>
@@ -126,7 +127,7 @@ const Special = () => {
                     })}
                 </ul>
             </section>
-        </>
+        </LayoutForAll>
     )
 }
 

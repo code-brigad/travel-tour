@@ -8,11 +8,12 @@ import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import { TextHeading, TextSubtitle } from '@/theme/Text';
+import LayoutForAll from '@/components/LayoutForAll';
 
 const Locations = () => {
   const { t } = useTranslation("common");
   return (
-    <>
+    <LayoutForAll>
       <Head>
         <title>Sayohat - {t('locations.pageTitle')}</title>
       </Head>
@@ -62,7 +63,7 @@ const Locations = () => {
           </div>
         </YMaps>
       </section>
-    </>
+    </LayoutForAll>
   )
 }
 

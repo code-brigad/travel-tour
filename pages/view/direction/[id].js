@@ -12,6 +12,7 @@ import Plane from '@/icons/Plane';
 import axios from "axios"
 import Link from 'next/link';
 import { Error, Loading } from '@/components';
+import LayoutForDetails from '@/components/LayoutForDetails';
 
 const OpenDirection = () => {
   // console.log(tourPackage, "user");
@@ -57,7 +58,7 @@ const OpenDirection = () => {
   }
 
   return (
-    <>
+    <LayoutForDetails>
       <Head>
         <title>{tourPackage.from_uz}	&rarr; {tourPackage.where_uz}</title>
       </Head>
@@ -80,7 +81,7 @@ const OpenDirection = () => {
           </div>
         </div>
         <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
-          <TextSubtitle className={'text-start !text-black'}>{tourPackage.descruzion_uz}</TextSubtitle>
+          <TextSubtitle className={'text-start !text-black'}>{tourPackage.description_uz}</TextSubtitle>
         </div>
         <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
           <TextSubtitle className={'text-start !text-black'}>{t("openpackage.from")}: {tourPackage.from_uz}</TextSubtitle>
@@ -105,18 +106,8 @@ const OpenDirection = () => {
           </div>
         </Link>
       </section>
-    </>
+    </LayoutForDetails>
   )
-}
-
-export async function getServerSideProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        'common'
-      ])),
-    },
-  }
 }
 
 export default OpenDirection

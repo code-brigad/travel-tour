@@ -8,6 +8,7 @@ import { useTranslation } from 'next-i18next'
 import { mulish, unbounded } from '@/public/assets/fonts'
 import { motion } from 'framer-motion'
 import { TextHeading, TextSubtitle } from '@/theme/Text'
+import LayoutForAll from '@/components/LayoutForAll'
 
 const socials = [
   {
@@ -30,7 +31,7 @@ const socials = [
 const About = () => {
   const { t } = useTranslation('common')
   return (
-    <>
+    <LayoutForAll>
       <Head>
         <title>Sayohat - {t('about.pageTitle')}</title>
       </Head>
@@ -109,7 +110,7 @@ const About = () => {
           </ul>
         </div>
       </section>
-    </>
+    </LayoutForAll>
   )
 }
 

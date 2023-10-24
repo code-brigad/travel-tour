@@ -6,11 +6,12 @@ import { mulish, unbounded } from '@/public/assets/fonts'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import { TextHeading, TextSubtitle } from '@/theme/Text'
+import LayoutForAll from '@/components/LayoutForAll'
 
 const Direction = () => {
   const { t } = useTranslation('common')
   return (
-    <>
+    <LayoutForAll>
       <Head>
         <title>{t('direction.pageTitle')}</title>
       </Head>
@@ -55,7 +56,7 @@ const Direction = () => {
           </div>
         </div>
       </section>
-    </>
+    </LayoutForAll>
   )
 }
 

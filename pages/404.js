@@ -6,6 +6,7 @@ import Head from 'next/head'
 import ArrowLeft from '@/icons/ArrowLeft'
 import Link from 'next/link'
 import { IconSearch } from '@/icons'
+import LayoutForAll from '@/components/LayoutForAll'
 
 const Custom404 = () => {
     const { t } = useTranslation('common')
@@ -13,7 +14,7 @@ const Custom404 = () => {
         window.history.back()
     }
     return (
-        <>
+        <LayoutForAll>
             <Head>
                 <title>{t('custom404.pageTitle')}</title>
             </Head>
@@ -40,7 +41,7 @@ const Custom404 = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </LayoutForAll>
     )
 }
 

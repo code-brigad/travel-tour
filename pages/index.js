@@ -3,11 +3,12 @@ import { mulish } from '@/public/assets/fonts'
 import { Hero, SimplePackages, SpecialPackages } from '@/sections'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
+import LayoutForAll from '@/components/LayoutForAll'
 
 export default function Home() {
   const { t } = useTranslation('common')
   return (
-    <>
+    <LayoutForAll>
       <Head>
         <title>{t('hero.pageTitle')}</title>
       </Head>
@@ -16,7 +17,7 @@ export default function Home() {
         <SpecialPackages />
         <SimplePackages />
       </section>
-    </>
+    </LayoutForAll>
   )
 }
 

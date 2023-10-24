@@ -62,14 +62,6 @@ const SimplePackages = () => {
                       width={200}
                       height={200}
                       className="w-full h-full rounded-[20px]"
-                      // onClick={() =>
-                      //   router.push({
-                      //     pathname: "/view/direction/[id]",
-                      //     query: {
-                      //       id: data.id
-                      //     },
-                      //   })
-                      // }
                     />
                   </Link>
                 </div>
