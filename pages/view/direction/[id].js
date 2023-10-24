@@ -27,9 +27,11 @@ const OpenDirection = () => {
     try {
       const { data } = await axios.get(`https://tour-spsn.onrender.com/api/travel/${router?.query?.id}`);
       setTourPackage(data);
+      console.log(data, "data");
       setIsLoading(false);
       setIsError(false);
     } catch (error) {
+      console.log("error", error);
       setIsLoading(false);
       setIsError(true);
     }
