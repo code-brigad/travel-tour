@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { mulish } from '@/public/assets/fonts'
-import { Hero, SimplePackages, SpecialPackages } from '@/sections'
+import { Gallery, Hero, SimplePackages, SpecialPackages } from '@/sections'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import LayoutForAll from '@/components/LayoutForAll'
@@ -16,6 +16,7 @@ export default function Home() {
         <Hero />
         <SpecialPackages />
         <SimplePackages />
+        <Gallery />
       </section>
     </LayoutForAll>
   )

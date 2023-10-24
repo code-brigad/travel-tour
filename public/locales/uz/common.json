@@ -97,6 +97,10 @@
         "fly": "Uchish sanasi",
         "manager": "Menejer bilan bog'lanish"
     },
+    "gallery": {
+        "title": "SAYOHATCHILARDAN OLINGAN SURATLAR",
+        "desc": "fotogalareya"
+    },
     "footer": {
         "paket": "Tur paketlar",
         "special": "Maxsus tur paketlar",

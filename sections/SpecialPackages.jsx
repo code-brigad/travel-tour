@@ -1,8 +1,5 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Error, Loading } from "@/components";
@@ -12,8 +9,6 @@ import Link from "next/link";
 import "swiper/css/pagination";
 
 const SpecialPackages = () => {
-  const { t, i18n } = useTranslation("common");
-  const router = useRouter();
   const [packages, setPackages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -31,7 +26,6 @@ const SpecialPackages = () => {
       setIsError(true);
     }
   };
-  console.log(packages);
 
   useEffect(() => {
     getPackages();

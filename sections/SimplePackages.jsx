@@ -6,6 +6,7 @@ import { Error, Loading, NoData } from "@/components";
 import Image from "next/image";
 import axios from "@/config/axios.config";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const SimplePackages = () => {
   const { t, i18n } = useTranslation("common");
@@ -32,7 +33,21 @@ const SimplePackages = () => {
     getPackages();
   }, []);
 
-  console.log(packages);
+  const cardVariants = {
+    offscreen: {
+      y: 100,
+      opacity: 0
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  };
 
   return (
     <section className="custom-container py-8 flex flex-col gap-8">
@@ -47,10 +62,19 @@ const SimplePackages = () => {
       ) : packages.length == 0 ? (
         <NoData />
       ) : (
-        <ul className="grid md:grid-cols-4 grid-cols-2 gap-3">
+        <motion.ul
+          className="grid md:grid-cols-4 grid-cols-2 gap-3"
+          initial="offscreen"
+          whileInView="onscreen"
+          transition={{
+            delayChildren: 0.1,
+            staggerChildren: 0.2,
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           {packages?.map((data) => {
             return (
-              <li key={data.id}>
+              <motion.li key={data.id} variants={cardVariants}>
                 <div className="cursor-pointer w-full h-auto">
                   <Link
                     href={{
@@ -97,10 +121,10 @@ const SimplePackages = () => {
                     )}
                   </TextSubtitle>
                 </div>
-              </li>
+              </motion.li>
             );
           })}
-        </ul>
+        </motion.ul>
       )}
     </section>
   );
