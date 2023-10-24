@@ -110,14 +110,14 @@ const OpenDirection = () => {
   )
 }
 
-export async function getServerSideProps(props) {
-  return {
-    props: {
-      ...(await serverSideTranslations(props.locale, [
-        'common'
-      ])),
-    },
-  }
-}
+// export async function getServerSideProps(props) {
+//   return {
+//     props: {
+//       ...(await serverSideTranslations(props.locale, [
+//         'common'
+//       ])),
+//     },
+//   }
+// }
 
 export default OpenDirection
