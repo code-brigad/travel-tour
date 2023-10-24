@@ -30,6 +30,11 @@ function App({ Component, pageProps }) {
       <meta property="og:image" content="/images/icons/192.png" />
       <meta property="og:image:width" content="500" />
       <meta property="og:image:height" content="500" />
+
+      <meta property="twitter:image" content="/images/icons/192.png" />
+      <meta property="twitter:card" content="/images/icons/192.png" />
+      <meta property="twitter:title" content="Travel House 777" />
+      <meta property="twitter:description" content="Travel House – национальный туроператор, специализирующийся на международном выездном, въездном и внутреннем туризме в Узбекистане." />
     </Head>
     <ConfigProvider
       theme={{

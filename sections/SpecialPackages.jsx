@@ -75,7 +75,7 @@ const SpecialPackages = () => {
               .filter((e) => e.type == "special")
               .map((data, i) => {
                 return (
-                  <SwiperSlide className="w-full !h-full cursor-pointer">
+                  <SwiperSlide className="w-full !h-full cursor-pointer" key={data.id}>
                     <Link
                       href={{
                         pathname: "/view/special/[id]",

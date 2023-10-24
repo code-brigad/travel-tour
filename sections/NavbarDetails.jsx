@@ -133,7 +133,7 @@ export const Mobile = ({ menuOpen, setMenuOpen }) => {
               <ul>
                 {links.map((link) => {
                   return (
-                    <li className="hover:bg-white/10 px-4 border-t border-white/20 last:border-b">
+                    <li className="hover:bg-white/10 px-4 border-t border-white/20 last:border-b" key={link.id}>
                       <Link
                         className="flex flex-row items-center gap-2 py-4"
                         href={link.link}
