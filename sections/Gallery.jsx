@@ -15,7 +15,7 @@ const Gallery = () => {
       </div>
       <ul className="w-full flex sm:flex-row flex-col sm:gap-6 gap-6">
         <li className="flex items-center justify-center">
-          <ul className="flex sm:flex-col flex-row gap-6 sm:px-4 px-0">
+          <ul className="flex sm:flex-col flex-row gap-6 md:px-4 px-0">
             <li>
               <Image
                 src={"/images/gallery/1.jpg"}
@@ -46,7 +46,7 @@ const Gallery = () => {
           />
         </li>
         <li className="flex items-center justify-center">
-          <ul className="flex sm:flex-col flex-row gap-6 sm:px-4 px-0">
+          <ul className="flex sm:flex-col flex-row gap-6 md:px-4 px-0">
             <li>
               <Image
                 src={"/images/gallery/4.jpg"}

@@ -102,8 +102,20 @@
         "desc": "fotogalareya"
     },
     "footer": {
-        "paket": "Tur paketlar",
-        "special": "Maxsus tur paketlar",
-        "help": "Kompaniya haqida"
+        "pages": {
+            "title": "Sahifalar",
+            "paket": "Tur paketlar",
+            "special": "Maxsus tur paketlar",
+            "location": "Joylashuv",
+            "about": "Kompaniya haqida"
+        },
+        "help": {
+            "title": "Yordam",
+            "telegram": "Yordam Markazi",
+            "admin": "Administrator"
+        },
+        "socials": {
+            "title": "Ijtimoiy Tarmoqlar"
+        }
     }
 }

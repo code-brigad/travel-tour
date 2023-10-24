@@ -1,38 +1,102 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import { mulish } from "@/public/assets/fonts";
+import { mulish, unbounded } from "@/public/assets/fonts";
 import { TextSubtitle } from "@/theme/Text";
+import { IconLocation, IconTelegram } from "@/icons";
+import Mail from "@/icons/Mail";
 
 const Footer = () => {
   const { t, i18n } = useTranslation("common");
   return (
     <footer className={`border-t pt-8 ${mulish.className}`}>
-      <div className="flex w-full flex-col items-center gap-6 mb-6">
-        <ul className="flex sm:flex-row flex-col text-center gap-2">
-          <li className="text-[14px] hover:text-main">
-            <TextSubtitle className={"!text-black hover:!text-main"}>
-              <Link href={"/view/direction"}>{t("footer.paket")}</Link>
-            </TextSubtitle>
+      <div className="flex w-full flex-col gap-6 mb-6 custom-container">
+        <ul className="flex md:flex-row flex-col md:gap-0 gap-7 justify-between">
+          <li>
+            <ul className="flex flex-col gap-[6px]">
+              <li className="mb-1 w-fit">
+                <TextSubtitle
+                  className={`${unbounded.className} text-start font-medium`}
+                >
+                  Travel House
+                </TextSubtitle>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <IconLocation fatherClass={"!fill-black"} />
+                <Link href={"https://yandex.uz/maps/-/CDaVAToy"}>
+                  Toshkent, Bekobod
+                </Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <IconTelegram
+                  fatherClass={"fill-black"}
+                  childClass={"!stroke-black"}
+                />
+                <Link href={"tel:+998909993023"}>+998 90 999 30 23</Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Mail childClass={"!stroke-black"} />
+                <Link href={"mailto:yordam@tour-house.uz"}>
+                  yordam@tour-house.uz
+                </Link>
+              </li>
+            </ul>
           </li>
-          <li className="sm:block hidden">&bull;</li>
-          <li className="text-[14px] hover:text-main">
-            <TextSubtitle className={"!text-black hover:!text-main"}>
-              <Link href={"/view/special"}>{t("footer.special")}</Link>
-            </TextSubtitle>
+          <li>
+            <ul className="flex flex-col gap-[6px]">
+              <li className="mb-1 w-fit">
+                <TextSubtitle className={`text-start !text-black font-bold`}>
+                  {t("footer.pages.title")}
+                </TextSubtitle>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={"/view/direction"}>{t("footer.pages.paket")}</Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={"/view/special"}>{t("footer.pages.special")}</Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={"/view/location"}>{t("footer.pages.location")}</Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={"/view/about"}>{t("footer.pages.about")}</Link>
+              </li>
+            </ul>
           </li>
-          <li className="sm:block hidden">&bull;</li>
-          <li className="text-[14px] hover:text-main">
-            <Link href={"/view/about"}>
-              <TextSubtitle className={"!text-black hover:!text-main"}>
-                {t("footer.help")}
-              </TextSubtitle>
-            </Link>
+          <li>
+            <ul className="flex flex-col gap-[6px]">
+              <li className="mb-1 w-fit">
+                <TextSubtitle className={`text-start !text-black font-bold`}>
+                  {t("footer.socials.title")}
+                </TextSubtitle>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={""}>Telegram</Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={""}>Instagram</Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={""}>YouTube</Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul className="flex flex-col gap-[6px]">
+              <li className="mb-1 w-fit">
+                <TextSubtitle className={`text-start !text-black font-bold`}>
+                  {t("footer.help.title")}
+                </TextSubtitle>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={"/view/direction"}>{t("footer.help.telegram")}</Link>
+              </li>
+              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+                <Link href={"/view/special"}>{t("footer.help.admin")}</Link>
+              </li>
+            </ul>
           </li>
         </ul>
-        <TextSubtitle className={"!text-black"}>
-          &laquo; Travel House 777 &raquo;
-        </TextSubtitle>
       </div>
       <div className="bg-main text-white py-4 flex items-center">
         <Link

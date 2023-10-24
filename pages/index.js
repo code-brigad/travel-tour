@@ -12,7 +12,7 @@ export default function Home() {
       <Head>
         <title>{t('hero.pageTitle')}</title>
       </Head>
-      <section className={mulish.className}>
+      <section className={`${mulish.className} flex flex-col gap-8`}>
         <Hero />
         <SpecialPackages />
         <SimplePackages />
