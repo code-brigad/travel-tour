@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Error, Loading, NoData } from "@/components";
 import Image from "next/image";
 import axios from "@/config/axios.config";
+import Link from "next/link";
 
 const SimplePackages = () => {
   const { t, i18n } = useTranslation("common");
@@ -49,23 +50,32 @@ const SimplePackages = () => {
             return (
               <li key={data.id}>
                 <div className="cursor-pointer w-full h-auto">
-                  <Image
-                    src={"/images/placeholder.png"}
-                    alt={data.createdAt}
-                    width={200}
-                    height={200}
-                    className="w-full h-full rounded-[20px]"
-                    onClick={() =>
-                      router.push({
-                        pathname: "/view/direction/[id]",
-                        query: {
-                          id: data.id
-                        },
-                      })
-                    }
-                  />
+                  <Link
+                    href={{
+                      pathname: "/view/direction/[id]",
+                      query: { id: data.id },
+                    }}
+                  >
+                    <Image
+                      src={"/images/placeholder.png"}
+                      alt={data.createdAt}
+                      width={200}
+                      height={200}
+                      className="w-full h-full rounded-[20px]"
+                      // onClick={() =>
+                      //   router.push({
+                      //     pathname: "/view/direction/[id]",
+                      //     query: {
+                      //       id: data.id
+                      //     },
+                      //   })
+                      // }
+                    />
+                  </Link>
                 </div>
-                <TextHeading className={"capitalize"}>{data.where_uz}</TextHeading>
+                <TextHeading className={"capitalize"}>
+                  {data.where_uz}
+                </TextHeading>
                 <div className="flex flex-row gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

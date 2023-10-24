@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 // import { useTranslation } from 'next-i18next'
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 // import { TextSubtitle } from '@/theme/Text';
 // import { IconMoney, IconTelegram } from '@/icons';
 // import { useState } from 'react';
@@ -16,7 +16,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 const OpenDirection = () => {
   // console.log(tourPackage, "user");
   // const { t, i18n } = useTranslation('common')
-  // const router = useRouter()
+  const router = useRouter()
+  console.log(router);
   // // const [tourPackage, setTourPackage] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
   // const [isError, setIsError] = useState(false);
