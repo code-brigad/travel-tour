@@ -115,7 +115,7 @@ const OpenSpecial = () => {
         <Link href={'/'}>
           <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main/[0.03] p-4 border border-main rounded-[10px]'>
             <IconTelegram childClass={'!stroke-main'} />
-            <TextSubtitle className={"!text-black capitalize"}>Menejer Bilan Bog'lanish</TextSubtitle>
+            <TextSubtitle className={"!text-black capitalize"}>Menejer Bilan Bog&apos;lanish</TextSubtitle>
           </div>
         </Link>
       </section>
