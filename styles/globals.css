@@ -72,10 +72,6 @@
   background-size: 3em 3em;
 }
 
-.swiper {
-  @apply !ml-0 !mr-0 !h-[300px]
-}
-
 .swiper-pagination-bullet-active {
   @apply !bg-main
 }
