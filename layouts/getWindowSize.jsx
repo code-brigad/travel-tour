@@ -6,8 +6,8 @@ const getWindowSize = () => {
 
   function getCurrentDimension() {
     return {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: typeof window !== 'undefined' ? window.innerWidth : null,
+      height: typeof window !== 'undefined' ? window.innerHeight : null,
     };
   }
 

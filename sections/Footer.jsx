@@ -9,7 +9,7 @@ import Mail from "@/icons/Mail";
 const Footer = () => {
   const { t, i18n } = useTranslation("common");
   return (
-    <footer className={`border-t pt-8 ${mulish.className}`}>
+    <footer className={`pt-8 border-t ${mulish.className}`}>
       <div className="flex w-full flex-col gap-6 mb-6 custom-container">
         <ul className="flex md:flex-row flex-col md:gap-0 gap-7 justify-between">
           <li>
@@ -98,7 +98,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div className="bg-main text-white py-4 flex items-center">
+      <div className="text-black border-t py-4 flex items-center">
         <Link
           href={"https://code-brigade.uz/"}
           target="_blank"

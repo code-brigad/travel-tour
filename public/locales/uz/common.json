@@ -71,8 +71,8 @@
         "main": "Asosiy"
     },
     "direction": {
-        "title": "Yo'nalishlar",
-        "pageTitle": "Yo'nalishlarni qidirib toping",
+        "title": "Tur paketlar",
+        "pageTitle": "Tur Paketlar",
         "notFound": "Yo'nalishlar topilmadi",
         "reason": "Bu quyidagi sabablarga ko'ra bo'lishi mumkin:",
         "reason1": "Bu aeroportga samolyotlar uchmaydi.",
@@ -98,8 +98,27 @@
         "manager": "Menejer bilan bog'lanish"
     },
     "gallery": {
-        "title": "SAYOHATCHILARDAN OLINGAN SURATLAR",
+        "title": "fotogalareya",
         "desc": "fotogalareya"
+    },
+    "contact": {
+        "title": "Biz bilan bog'lanish",
+        "desc": "Ma'lumotlaringizni qoldiring va o'zimiz siz bilan bog'lanamiz",
+        "phone": "Telefon",
+        "name": "Ism familiya",
+        "btn": "Yuborish",
+        "validation": {
+            "name": {
+                "length": "4 belgidan kam",
+                "max": "Maksimal belgilar soni 30 ta",
+                "req": "Ism familiya kiritilmagan"
+            },
+            "phone": {
+                "length": "Raqam xato kiritildi",
+                "max": "Maksimal belgilar soni 14 ta",
+                "req": "Raqam kiritilmadi"
+            }
+        }
     },
     "footer": {
         "pages": {

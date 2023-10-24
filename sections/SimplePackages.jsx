@@ -35,7 +35,7 @@ const SimplePackages = () => {
 
   const cardVariants = {
     offscreen: {
-      y: 100,
+      y: 50,
       opacity: 0
     },
     onscreen: {

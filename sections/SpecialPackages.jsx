@@ -6,6 +6,7 @@ import { Error, Loading } from "@/components";
 import Image from "next/image";
 import axios from "@/config/axios.config";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import "swiper/css/pagination";
 
 const SpecialPackages = () => {
@@ -40,7 +41,23 @@ const SpecialPackages = () => {
       ) : packages.filter((e) => e.type == "special").length == 0 ? (
         ""
       ) : (
-        <ul className="flex flex-col gap-4 w-full h-[300px]">
+        <motion.ul
+          className="flex flex-col gap-4 w-full h-[300px]"
+          initial={{
+            scale: 0,
+            opacity: 0,
+          }}
+          whileInView={{
+            scale: 1,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 0.5,
+            },
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <Swiper
             direction={"vertical"}
             spaceBetween={10}
@@ -77,7 +94,7 @@ const SpecialPackages = () => {
                 );
               })}
           </Swiper>
-        </ul>
+        </motion.ul>
       )}
     </section>
   );

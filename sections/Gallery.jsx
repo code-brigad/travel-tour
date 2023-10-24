@@ -2,6 +2,7 @@ import { TextSubtitle, TextTitle } from "@/theme/Text";
 import React from "react";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Gallery = () => {
   const { t } = useTranslation("common");
@@ -16,7 +17,22 @@ const Gallery = () => {
       <ul className="w-full flex sm:flex-row flex-col sm:gap-6 gap-6">
         <li className="flex items-center justify-center">
           <ul className="flex sm:flex-col flex-row gap-6 md:px-4 px-0">
-            <li>
+            <motion.li
+              initial={{
+                scale: 0,
+                opacity: 0,
+              }}
+              whileInView={{
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  type: "spring",
+                  bounce: 0.4,
+                  duration: 0.5,
+                },
+              }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               <Image
                 src={"/images/gallery/1.jpg"}
                 width={500}
@@ -24,8 +40,23 @@ const Gallery = () => {
                 alt="1"
                 className="sm:rounded-[30px] rounded-[20px]"
               />
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial={{
+                scale: 0,
+                opacity: 0,
+              }}
+              whileInView={{
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  type: "spring",
+                  bounce: 0.4,
+                  duration: 0.5,
+                },
+              }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               <Image
                 src={"/images/gallery/2.jpg"}
                 width={500}
@@ -33,10 +64,26 @@ const Gallery = () => {
                 alt="1"
                 className="sm:rounded-[30px] rounded-[20px]"
               />
-            </li>
+            </motion.li>
           </ul>
         </li>
-        <li className="flex items-center justify-center">
+        <motion.li
+          className="flex items-center justify-center"
+          initial={{
+            scale: 0,
+            opacity: 0,
+          }}
+          whileInView={{
+            scale: 1,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 0.5,
+            },
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <Image
             src={"/images/gallery/3.jpg"}
             width={500}
@@ -44,10 +91,25 @@ const Gallery = () => {
             alt="1"
             className="sm:rounded-[30px] rounded-[20px] w-full"
           />
-        </li>
+        </motion.li>
         <li className="flex items-center justify-center">
           <ul className="flex sm:flex-col flex-row gap-6 md:px-4 px-0">
-            <li>
+            <motion.li
+              initial={{
+                scale: 0,
+                opacity: 0,
+              }}
+              whileInView={{
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  type: "spring",
+                  bounce: 0.4,
+                  duration: 0.5,
+                },
+              }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               <Image
                 src={"/images/gallery/4.jpg"}
                 width={500}
@@ -55,8 +117,23 @@ const Gallery = () => {
                 alt="1"
                 className="sm:rounded-[30px] rounded-[20px]"
               />
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              initial={{
+                scale: 0,
+                opacity: 0,
+              }}
+              whileInView={{
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  type: "spring",
+                  bounce: 0.4,
+                  duration: 0.5,
+                },
+              }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               <Image
                 src={"/images/gallery/5.jpg"}
                 width={500}
@@ -64,7 +141,7 @@ const Gallery = () => {
                 alt="1"
                 className="sm:rounded-[30px] rounded-[20px]"
               />
-            </li>
+            </motion.li>
           </ul>
         </li>
       </ul>
