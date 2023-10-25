@@ -26,7 +26,6 @@ const getCountriesApi = (term) => {
         }
       } catch (error) {
         setIsLoading(false)
-        console.log("error in getting countries");
       }
     } else {
       setCountries([])

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import axios from "@/config/axios.config";
 import Link from "next/link";
+import formatMoney from "@/layouts/formatMoney";
 
 const SimplePackages = () => {
   const { t, i18n } = useTranslation("common");
@@ -46,7 +47,7 @@ const SimplePackages = () => {
       },
     },
   };
-
+  
   if (isLoading) {
     return <Loading />;
   }
@@ -118,9 +119,9 @@ const SimplePackages = () => {
                 </svg>
                 <TextSubtitle className="!text-black text-start">
                   {i18n.language == "uz" ? (
-                    <>{data.price}mln dan boshlab</>
+                    <>{formatMoney(data.price)}  mln dan boshlab</>
                   ) : (
-                    <>Начиная с {data.price} млн сум</>
+                    <>Начиная с {formatMoney(data.price)} млн сум</>
                   )}
                 </TextSubtitle>
               </div>

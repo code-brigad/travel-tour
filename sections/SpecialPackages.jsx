@@ -33,7 +33,7 @@ const SpecialPackages = () => {
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return <Loading />
   }
 
   if (isError) {

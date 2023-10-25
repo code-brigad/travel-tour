@@ -18,7 +18,7 @@ const Footer = () => {
                 <TextSubtitle
                   className={`${unbounded.className} text-start font-medium`}
                 >
-                  Travel House
+                  Travel House 777
                 </TextSubtitle>
               </li>
               <li className="flex flex-row items-center gap-2 hover:text-main w-fit">

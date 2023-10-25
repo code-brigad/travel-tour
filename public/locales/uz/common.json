@@ -73,9 +73,9 @@
     "direction": {
         "title": "Tur paketlar",
         "pageTitle": "Tur Paketlar",
-        "notFound": "Yo'nalishlar topilmadi",
+        "notFound": "Tur Paketlar topilmadi",
         "reason": "Bu quyidagi sabablarga ko'ra bo'lishi mumkin:",
-        "reason1": "Bu aeroportga samolyotlar uchmaydi.",
+        "reason1": "Kiritilgan yo'nalishlarni tekshiring.",
         "reason2": "Kiritilgan sana va kunlarni tekshiring."
     },
     "ui": {
@@ -119,6 +119,9 @@
                 "req": "Raqam kiritilmadi"
             }
         }
+    },
+    "search": {
+        "title": "Qidiruv Natijalari"
     },
     "footer": {
         "pages": {

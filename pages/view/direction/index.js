@@ -12,6 +12,7 @@ import axios from '@/config/axios.config'
 import Link from 'next/link'
 import Image from 'next/image'
 import { IconHome } from '@/icons'
+import formatMoney from '@/layouts/formatMoney'
 
 const Direction = () => {
   const { t, i18n } = useTranslation('common')
@@ -41,7 +42,7 @@ const Direction = () => {
   return (
     <LayoutForAll>
       <Head>
-        <title>{t('direction.pageTitle')}</title>
+        <title>Travel House 777 - {t('direction.pageTitle')}</title>
       </Head>
       <section className="bg-cube bg-main text-white min-h-[400px] flex items-center justify-center">
         <div className="pt-[150px] pb-[150px] w-full custom-container flex flex-col gap-6">
@@ -120,9 +121,9 @@ const Direction = () => {
                       </svg>
                       <TextSubtitle className="!text-black text-start">
                         {i18n.language == "uz" ? (
-                          <>{data.price}mln dan boshlab / {data.fly_date.slice(0, 10)}</>
+                          <>{formatMoney(data.price)}mln dan boshlab / {data.fly_date.slice(0, 10)}</>
                         ) : (
-                          <>Начиная с {data.price} млн сум</>
+                          <>Начиная с {formatMoney(data.price)} млн сум</>
                         )}
                       </TextSubtitle>
                     </div>

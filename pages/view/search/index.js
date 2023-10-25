@@ -1,20 +1,21 @@
 import { AnimatedHeader, Error, Loading } from '@/components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
 import { mulish, unbounded } from '@/public/assets/fonts'
-import { IconHome } from '@/icons';
-import { motion } from 'framer-motion';
-import { TextHeading, TextSubtitle } from '@/theme/Text';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import Link from 'next/link';
-import Head from 'next/head';
-import Image from 'next/image';
-import axios from "@/config/axios.config"
-import LayoutForAll from '@/components/LayoutForAll';
-import formatMoney from '@/layouts/formatMoney';
+import { useTranslation } from 'next-i18next'
+import { TextHeading, TextSubtitle } from '@/theme/Text'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { IconHome } from '@/icons'
+import { useRouter } from 'next/router'
+import LayoutForAll from '@/components/LayoutForAll'
+import Head from 'next/head'
+import axios from '@/config/axios.config'
+import Link from 'next/link'
+import Image from 'next/image'
 
-const Special = () => {
+const Search = () => {
+  const route = useRouter()
   const { t, i18n } = useTranslation('common')
   const [packages, setPackages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,7 @@ const Special = () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const { data } = await axios.get("travel/");
+      const { data } = await axios.get(`/travel/search/${route.query.from}-${route.query.where}`);
       setPackages(data);
       setIsLoading(false);
       setIsError(false);
@@ -37,16 +38,17 @@ const Special = () => {
   useEffect(() => {
     getPackages();
   }, []);
+
   return (
     <LayoutForAll>
       <Head>
-        <title>Travel House 777 - {t('cpecial.desc')}</title>
+        <title>{t('search.title')}: {route.query.from} - {route.query.where}</title>
       </Head>
-      <section className='flex items-center bg-cube bg-main text-white'>
-        <div className='custom-container pt-[150px] pb-[150px] flex flex-col gap-6'>
+      <section className="bg-cube bg-main text-white min-h-[400px] flex items-center justify-center">
+        <div className="pt-[150px] pb-[150px] w-full custom-container flex flex-col gap-6">
           <AnimatedHeader
             className={`text-center font-black md:leading-none leading-[70px] uppercase lg:text-[80px] md:text-[70px] text-[60px] ${unbounded.className}`}
-            text={t("cpecial.title")}
+            text={t("search.title")}
           />
           <div className='w-full flex justify-center'>
             <motion.ul
@@ -62,7 +64,7 @@ const Special = () => {
                 <Link href={'/'}><IconHome /></Link>
               </li>
               <li className="border border-white/20 py-[6px] px-4 hover:bg-white/10 rounded-[5px] w-fit cursor-pointer">
-                <Link href={'/special'} className='font-medium'><TextSubtitle className={'!text-white'}>Maxsus</TextSubtitle></Link>
+                <Link href={'/special'} className='font-medium'><TextSubtitle className={'!text-white'}>{t("search.title")}</TextSubtitle></Link>
               </li>
             </motion.ul>
           </div>
@@ -80,7 +82,7 @@ const Special = () => {
               </ul>
             </div>
             : <ul className="w-full flex flex-col gap-8">
-              {packages.filter((e) => e.type == "special")?.map((data) => {
+              {packages?.map((data) => {
                 return (
                   <li key={data.id}>
                     <div className="cursor-pointer w-full h-auto">
@@ -96,7 +98,7 @@ const Special = () => {
                       </Link>
                     </div>
                     <TextHeading className={"capitalize"}>
-                      {data.from_uz} {data.where_uz}
+                      {data.from_uz} - {data.where_uz}
                     </TextHeading>
                     <div className="flex flex-row gap-2">
                       <svg
@@ -119,9 +121,9 @@ const Special = () => {
                       </svg>
                       <TextSubtitle className="!text-black text-start">
                         {i18n.language == "uz" ? (
-                          <>{formatMoney(data.price)}mln dan boshlab / {data.fly_date.slice(0, 10)}</>
+                          <>{data.price}mln dan boshlab / {data.fly_date.slice(0, 10)}</>
                         ) : (
-                          <>Начиная с {formatMoney(data.price)} млн сум</>
+                          <>Начиная с {data.price} млн сум</>
                         )}
                       </TextSubtitle>
                     </div>
@@ -146,4 +148,4 @@ export async function getStaticProps({ locale }) {
   }
 }
 
-export default Special
+export default Search

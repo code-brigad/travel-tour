@@ -33,7 +33,7 @@ const About = () => {
   return (
     <LayoutForAll>
       <Head>
-        <title>Sayohat - {t('about.pageTitle')}</title>
+        <title>Travel House 777 - {t('about.pageTitle')}</title>
       </Head>
       <section className='bg-cube bg-main text-white flex justify-center items-center'>
         <div className='custom-container pb-[150px] pt-[150px] flex flex-col gap-6'>

@@ -1,29 +1,30 @@
-import { useTranslation } from 'next-i18next'
 import { TextSubtitle } from '@/theme/Text';
 import { useRouter } from 'next/router';
 import { IconLoading, IconMoney, IconTelegram, IconWarning } from '@/icons';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Error, Loading } from '@/components';
 import Head from 'next/head';
 import Image from 'next/image';
 import Plane from '@/icons/Plane';
 import axios from "axios"
 import Link from 'next/link';
 import LayoutForDetails from '@/components/LayoutForDetails';
+import formatMoney from '@/layouts/formatMoney';
+import { SellModal } from '@/components';
 
 const OpenSpecial = () => {
-  const { t, i18n } = useTranslation('common')
   const router = useRouter()
   const [tourPackage, setTourPackage] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [sellOpen, setSellOpen] = useState(false)
+  const [id, setId] = useState('')
 
   const getPackages = async () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const { data } = await axios.get(`https://tour-spsn.onrender.com/api/travel/${router.query.id}`);
+      const { data } = await axios.get(`https://tour-spsn.onrender.com/api/travel/${router?.query?.id}`);
       setTourPackage(data);
       setIsLoading(false);
       setIsError(false);
@@ -90,7 +91,7 @@ const OpenSpecial = () => {
           </div>
           <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main px-4 py-4 rounded-[10px]'>
             <IconMoney fatherClass={''} />
-            <TextSubtitle className={"!text-white capitalize"}>Narx: <span className='font-semibold'>{tourPackage.price} so&apos;m</span></TextSubtitle>
+            <TextSubtitle className={"!text-white capitalize"}>Narx: <span className='font-semibold'>{formatMoney(tourPackage.price)} so&apos;m</span></TextSubtitle>
           </div>
         </div>
         <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
@@ -110,14 +111,26 @@ const OpenSpecial = () => {
           <TextSubtitle className={'text-start !text-black'}>Uchish sanasi: {tourPackage.fly_date}</TextSubtitle>
         </div>
         <div className='bg-main p-4 border rounded-[10px] flex flex-col gap-2'>
-          <TextSubtitle className={'text-start !text-white'}>Narx: {tourPackage.price} So&apos;m</TextSubtitle>
+          <TextSubtitle className={'text-start !text-white'}>Narx: {formatMoney(tourPackage.price)} So&apos;m</TextSubtitle>
         </div>
-        <Link href={'/'}>
-          <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main/[0.03] p-4 border border-main rounded-[10px]'>
-            <IconTelegram childClass={'!stroke-main'} />
-            <TextSubtitle className={"!text-black capitalize"}>Menejer Bilan Bog&apos;lanish</TextSubtitle>
+        <div className='flex flex-row gap-3 w-full justify-end'>
+          <Link href={'/'}>
+            <div className='sm:w-fit w-full flex flex-row items-center gap-2 bg-main/[0.03] p-4 border border-main rounded-[10px]'>
+              <IconTelegram childClass={'!stroke-main'} />
+              <TextSubtitle className={"!text-black capitalize"}>Menejer bilan bog&apos;lanish</TextSubtitle>
+            </div>
+          </Link>
+          <div
+            onClick={() => {
+              setId(tourPackage)
+              setSellOpen(!sellOpen)
+            }}
+            className='sm:w-fit w-full flex flex-row items-center cursor-pointer gap-2 bg-secondary p-4 rounded-[10px]'
+          >
+            <TextSubtitle className={"!text-white capitalize"}>Sotib olish</TextSubtitle>
           </div>
-        </Link>
+        </div>
+        <SellModal setOpen={setSellOpen} open={sellOpen} id={id} />
       </section>
     </LayoutForDetails>
   )

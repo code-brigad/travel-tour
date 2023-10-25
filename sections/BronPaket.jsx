@@ -3,45 +3,59 @@ import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion";
 import { DatePicker } from "antd";
 import axios from "@/config/axios.config";
+import { IconLoading } from "@/icons";
+import { useRouter } from "next/router";
 
 const BronPaket = () => {
+  const route = useRouter();
   const { t } = useTranslation("common");
-  const [from, setFrom] = useState("")
-  const [fromError, setFromError] = useState(false)
-  const [where, setWhere] = useState("")
-  const [whereError, setWhereError] = useState(false)
+  const [from, setFrom] = useState("");
+  const [fromError, setFromError] = useState(false);
+  const [where, setWhere] = useState("");
+  const [whereError, setWhereError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const changedFrom = from[0]?.toUpperCase() + from.slice(1);
+  const changedWhere = where[0]?.toUpperCase() + where.slice(1);
 
   const handleSubmit = async () => {
     if (where.length <= 3 && from.length <= 3) {
-      setFromError(true)
-      setWhereError(true)
-      return
+      setFromError(true);
+      setWhereError(true);
+      return;
     }
 
     if (where.length <= 3) {
-      setWhere(true)
-      return
+      setWhere(true);
+      return;
     }
 
     if (from.length <= 3) {
-      setFromError(true)
-      return
+      setFromError(true);
+      return;
     }
 
-    const data = {
-      "from_uz": from,
-      "where_uz": where,
-    }
-
+    setIsLoading(true);
     try {
-      const response = await axios.get("/travel/search", data)
-      console.log(response);
+      const response = await axios.get(
+        `/travel/search/${changedFrom}-${changedWhere}`
+      );
+      if (response.status == 200) {
+        route.push({
+          pathname: "/view/search/",
+          query: { from: changedFrom, where: changedWhere },
+        });
+      }
+      setIsLoading(false);
+      setFrom("")
+      setWhere("")
+      setFromError(false)
+      setWhereError(false)
     } catch (error) {
-      console.log(error);
+      setIsLoading(false);
     }
-
   };
-  
+
   const handleGetGoDate = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -71,9 +85,7 @@ const BronPaket = () => {
             {from.length !== 0 && (
               <>
                 <svg
-                  onClick={() =>
-                    setWhere("")
-                  }
+                  onClick={() => setWhere("")}
                   className="clear cursor-pointer inline z-40 absolute top-[50%] right-[14px] fill-gray-400 translate-y-[-50%]"
                   fill-rule="evenodd"
                   viewBox="64 64 896 896"
@@ -126,9 +138,13 @@ const BronPaket = () => {
       <motion.button
         onClick={handleSubmit}
         whileHover={{ scale: 1.1 }}
-        className="text-center py-2 bg-secondary px-6 uppercase rounded-md"
+        className="text-center w-[100px] h-[40px] bg-secondary px-6 uppercase rounded-md flex items-center justify-center"
       >
-        {t("hero.btn")}
+        {isLoading ? (
+          <IconLoading fatherClass={"!-ml-0 !mr-0"} />
+        ) : (
+          <>{t("hero.btn")}</>
+        )}
       </motion.button>
     </motion.div>
   );
