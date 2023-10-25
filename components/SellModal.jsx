@@ -34,11 +34,17 @@ const SellModal = ({ open, setOpen, id }) => {
         .required("Raqam kiritilmadi!"),
     }),
     onSubmit: async (values, helpers) => {
-      const message =
-      `#sotib_olish <b>💰Foydalanuvchi Tur Paket sotib olmoqchi</b>
-      \n👮‍♂️ Ism Familiya: <u>${values.name}</u>\n☎️ Raqam: <u><code>${values.phone}</code></u>
+      const message = `#sotib_olish <b>💰Foydalanuvchi Tur Paket sotib olmoqchi</b>
+      \n👮‍♂️ Ism Familiya: <u>${values.name}</u>\n☎️ Raqam: <u><code>${
+        values.phone
+      }</code></u>
       \n<b>ℹ️ Maxsulot haqida:</b>
-      \n🗺 Yo'nalishlar: ${id.from_uz} - ${id.where_uz}\n🛫 Qayerdan: ${id.from_uz}\n🛬 Qayerga: ${id.where_uz}\n📅 Uchish sanasi: ${id.fly_date.slice(0, 10)}\n💸 Narxi: ${formatMoney(id.price)}
+      \n🗺 Yo'nalishlar: ${id.from_uz} - ${id.where_uz}\n🛫 Qayerdan: ${
+        id.from_uz
+      }\n🛬 Qayerga: ${id.where_uz}\n📅 Uchish sanasi: ${id.fly_date.slice(
+        0,
+        10
+      )}\n💸 Narxi: ${formatMoney(id.price)}
       \nTur Paket saytga joylangan vaqt: ${id.updatedAt.slice(0, 10)}
       `;
       try {
@@ -71,17 +77,17 @@ const SellModal = ({ open, setOpen, id }) => {
         onCancel={handleCancel}
         centered
         title={[
-          <TextHeading>Tur Paketni sotib olish</TextHeading>,
-          <TextSubtitle className={"!text-black text-start mb-[20px]"}>
+          <TextHeading key={"one"}>Tur Paketni sotib olish</TextHeading>,
+          <TextSubtitle
+            key={"two"}
+            className={"!text-black text-start mb-[20px]"}
+          >
             Ma&apos;lumotlaringizni kiriting va biz siz bilan aloqaga chiqamiz
           </TextSubtitle>,
         ]}
         footer={""}
       >
-        <form
-          noValidate
-          className="w-full flex flex-col gap-3 items-center"
-        >
+        <form noValidate className="w-full flex flex-col gap-3 items-center">
           <div className="flex flex-col gap-4 w-full max-w-[700px]">
             <div className="w-full">
               <input
