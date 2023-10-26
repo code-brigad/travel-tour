@@ -11,6 +11,7 @@ import Link from 'next/link';
 import LayoutForDetails from '@/components/LayoutForDetails';
 import formatMoney from '@/layouts/formatMoney';
 import { SellModal } from '@/components';
+import moment from 'moment';
 
 const OpenSpecial = () => {
   const router = useRouter()
@@ -108,7 +109,7 @@ const OpenSpecial = () => {
           } kun / {tourPackage.days - 1} tun</TextSubtitle>
         </div>
         <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
-          <TextSubtitle className={'text-start !text-black'}>Uchish sanasi: {tourPackage.fly_date}</TextSubtitle>
+          <TextSubtitle className={'text-start !text-black'}>Uchish sanasi: {moment(tourPackage.fly_date).format("YYYY-MM-DD")}</TextSubtitle>
         </div>
         <div className='bg-main p-4 border rounded-[10px] flex flex-col gap-2'>
           <TextSubtitle className={'text-start !text-white'}>Narx: {formatMoney(tourPackage.price)} So&apos;m</TextSubtitle>

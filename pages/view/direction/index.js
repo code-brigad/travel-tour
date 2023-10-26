@@ -13,6 +13,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { IconHome } from '@/icons'
 import formatMoney from '@/layouts/formatMoney'
+import moment from 'moment'
 
 const Direction = () => {
   const { t, i18n } = useTranslation('common')
@@ -121,7 +122,7 @@ const Direction = () => {
                       </svg>
                       <TextSubtitle className="!text-black text-start">
                         {i18n.language == "uz" ? (
-                          <>{formatMoney(data.price)}mln dan boshlab / {data.fly_date.slice(0, 10)}</>
+                          <>{formatMoney(data.price)} so&apos;m dan boshlab / {moment(data.fly_date).format("YYYY-MM-DD")}</>
                         ) : (
                           <>Начиная с {formatMoney(data.price)} млн сум</>
                         )}
