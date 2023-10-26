@@ -1,13 +1,15 @@
-import { TextHeading, TextSubtitle } from "@/theme/Text";
+import * as Yup from "yup";
 import React from "react";
+import axios from "axios";
+import { TextHeading, TextSubtitle } from "@/theme/Text";
 import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion";
 import { useFormik } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
 import { chat_id, telegram_bot_id } from "@/layouts/constants";
+import { message } from "antd";
 
 const Contact = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const { t } = useTranslation("common");
 
   const formik = useFormik({
@@ -27,14 +29,10 @@ const Contact = () => {
     }),
     onSubmit: async (values, helpers) => {
       const message = `
-        #boglanish
-
-        <b>Foydalanuvchi siz bilan bog'lanmoqchi</b>
-
-        Ism Familiya: ${values.name}
-        Raqam: <code>${values.phone}</code>`;
+        #boglanish <b>📱Foydalanuvchi siz bilan bog'lanmoqchi</b>
+        \n👮‍♂️ Ism Familiya: <u>${values.name}</u>\n☎️ Raqam: <code>${values.phone}</code>`;
       try {
-        await axios.get(
+        const { status } = await axios.get(
           `https://api.telegram.org/bot${telegram_bot_id}/sendMessage`,
           {
             params: {
@@ -44,6 +42,13 @@ const Contact = () => {
             },
           }
         );
+        if (status == 200) {
+          messageApi.open({
+            type: "success",
+            content: <>{t("ui.submitted")}</>,
+            duration: 5,
+          });
+        }
         helpers.resetForm();
       } catch (error) {
         helpers.setStatus({ success: false });
@@ -57,10 +62,13 @@ const Contact = () => {
     "py-6 px-3 text-black w-full rounded-[10px] focus:ring-2 focus:ring-secondary bg-white outline-none transition-all duration-300 capitalize placeholder:opacity-80";
   return (
     <section className="w-full py-[25px] bg-main text-white">
+      {contextHolder}
       <div className="custom-container flex flex-col gap-5 items-center text-center">
         <div>
           <TextHeading>{t("contact.title")}</TextHeading>
-          <TextSubtitle className={"!text-center !text-white"}>{t("contact.desc")}</TextSubtitle>
+          <TextSubtitle className={"!text-center !text-white"}>
+            {t("contact.desc")}
+          </TextSubtitle>
         </div>
         <form
           noValidate

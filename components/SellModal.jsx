@@ -7,14 +7,15 @@ import { TextHeading, TextSubtitle } from "@/theme/Text";
 import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import { chat_id, telegram_bot_id } from "@/layouts/constants";
+import { message } from "antd";
 
 const SellModal = ({ open, setOpen, id }) => {
+  const [messageApi, contextHolder] = message.useMessage();
   const handleOk = (e) => {
-    console.log(e);
     setOpen(false);
   };
+  
   const handleCancel = (e) => {
-    console.log(e);
     setOpen(false);
   };
 
@@ -35,9 +36,9 @@ const SellModal = ({ open, setOpen, id }) => {
     }),
     onSubmit: async (values, helpers) => {
       const message = `#sotib_olish <b>💰Foydalanuvchi Tur Paket sotib olmoqchi</b>
-      \n👮‍♂️ Ism Familiya: <u>${values.name}</u>\n☎️ Raqam: <u><code>${
+      \n👮‍♂️ Ism Familiya: <u>${values.name}</u>\n☎️ Raqam: <code>${
         values.phone
-      }</code></u>
+      }</code>
       \n<b>ℹ️ Maxsulot haqida:</b>
       \n🗺 Yo'nalishlar: ${id.from_uz} - ${id.where_uz}\n🛫 Qayerdan: ${
         id.from_uz
@@ -48,7 +49,7 @@ const SellModal = ({ open, setOpen, id }) => {
       \nTur Paket saytga joylangan vaqt: ${id.updatedAt.slice(0, 10)}
       `;
       try {
-        await axios.get(
+        const { status } = await axios.get(
           `https://api.telegram.org/bot${telegram_bot_id}/sendMessage`,
           {
             params: {
@@ -58,6 +59,14 @@ const SellModal = ({ open, setOpen, id }) => {
             },
           }
         );
+        if (status == 200) {
+          messageApi.open({
+            type: "success",
+            content: "Yuborildi. Siz bilan 24 soat ichida bog'lanamiz!",
+            duration: 5,
+          });
+          setOpen(false);
+        }
         helpers.resetForm();
       } catch (error) {
         helpers.setStatus({ success: false });
@@ -71,6 +80,7 @@ const SellModal = ({ open, setOpen, id }) => {
     "py-3 px-3 text-black w-full border rounded-[10px] focus:ring-2 focus:ring-secondary bg-white outline-none transition-all duration-300 capitalize placeholder:opacity-80";
   return (
     <>
+      {contextHolder}
       <Modal
         open={open}
         onOk={handleOk}
@@ -119,14 +129,14 @@ const SellModal = ({ open, setOpen, id }) => {
             </div>
           </div>
           <div className="w-full flex flex-row items-center justify-end gap-3">
-            <motion.button
+            <button
               onClick={handleCancel}
               type="submit"
               whileHover={{ scale: 1.1 }}
-              className="text-center w-fit py-2 text-secondary border border-secondary px-6 uppercase rounded-md"
+              className="text-center w-fit py-2 text-black px-6 uppercase rounded-md"
             >
               Bekor qilish
-            </motion.button>
+            </button>
             <motion.button
               type="submit"
               whileHover={{ scale: 1.1 }}

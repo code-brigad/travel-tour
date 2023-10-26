@@ -84,7 +84,8 @@
             "desc": "Qaytadan urinib ko'ring"
         },
         "loading": "Yuklanmoqda...",
-        "nodata": "Tur paketlar hozirda mavjud emas"
+        "nodata": "Tur paketlar hozirda mavjud emas",
+        "submitted": "Yuborildi. Siz bilan 24 soat ichida bog'lanamiz!"
     },
     "openpackage": {
         "from": "Qayerdan",

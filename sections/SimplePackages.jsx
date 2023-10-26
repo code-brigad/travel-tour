@@ -18,7 +18,7 @@ const SimplePackages = () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const { data } = await axios.get("travel/");
+      const { data } = await axios.get("/travel");
       setPackages(data);
       setIsLoading(false);
       setIsError(false);
@@ -47,7 +47,7 @@ const SimplePackages = () => {
       },
     },
   };
-  
+
   if (isLoading) {
     return <Loading />;
   }
@@ -119,9 +119,20 @@ const SimplePackages = () => {
                 </svg>
                 <TextSubtitle className="!text-black text-start">
                   {i18n.language == "uz" ? (
-                    <>{formatMoney(data.price)}  mln dan boshlab</>
+                    <>
+                      {formatMoney(data.price).length > 10
+                        ? formatMoney(data.price).slice(0, 3)
+                        : formatMoney(data.price)}{" "}
+                      mln dan boshlab
+                    </>
                   ) : (
-                    <>Начиная с {formatMoney(data.price)} млн сум</>
+                    <>
+                      Начиная с{" "}
+                      {formatMoney(data.price).length > 10
+                        ? formatMoney(data.price).slice(0, 3)
+                        : formatMoney(data.price)}{" "}
+                      млн сум
+                    </>
                   )}
                 </TextSubtitle>
               </div>

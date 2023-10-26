@@ -13,7 +13,8 @@ import formatMoney from '@/layouts/formatMoney';
 import moment from 'moment';
 import { SellModal } from '@/components';
 
-const OpenDirection = () => {
+const OpenDirection = ({ serverTime }) => {
+  console.log(serverTime, "time");
   const router = useRouter()
   const [tourPackage, setTourPackage] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -137,6 +138,15 @@ const OpenDirection = () => {
       </LayoutForDetails>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const serverTime = new Date().toString();
+  return {
+    props: {
+      serverTime,
+    },
+  };
 }
 
 export default OpenDirection
