@@ -21,20 +21,20 @@ const Footer = () => {
                   Travel House 777
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <IconLocation fatherClass={"!fill-black"} />
                 <Link href={"https://yandex.uz/maps/-/CDaVAToy"}>
                   Toshkent, Bekobod
                 </Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <IconTelegram
                   fatherClass={"fill-black"}
                   childClass={"!stroke-black"}
                 />
                 <Link href={"tel:+998909993023"}>+998 90 999 30 23</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Mail childClass={"!stroke-black"} />
                 <Link href={"mailto:yordam@tour-house.uz"}>
                   yordam@tour-house.uz
@@ -49,16 +49,16 @@ const Footer = () => {
                   {t("footer.pages.title")}
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/direction"}>{t("footer.pages.paket")}</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/special"}>{t("footer.pages.special")}</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/location"}>{t("footer.pages.location")}</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/about"}>{t("footer.pages.about")}</Link>
               </li>
             </ul>
@@ -70,13 +70,13 @@ const Footer = () => {
                   {t("footer.socials.title")}
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={""}>Telegram</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={""}>Instagram</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={""}>YouTube</Link>
               </li>
             </ul>
@@ -88,10 +88,10 @@ const Footer = () => {
                   {t("footer.help.title")}
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/direction"}>{t("footer.help.telegram")}</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/special"}>{t("footer.help.admin")}</Link>
               </li>
             </ul>

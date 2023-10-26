@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import LayoutForAll from '@/components/LayoutForAll'
 import { AnimatedHeader } from '@/components'
 import { IconHome, IconInstagram, IconTelegram, IconYoutube } from '@/icons'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -8,7 +9,6 @@ import { useTranslation } from 'next-i18next'
 import { mulish, unbounded } from '@/public/assets/fonts'
 import { motion } from 'framer-motion'
 import { TextHeading, TextSubtitle } from '@/theme/Text'
-import LayoutForAll from '@/components/LayoutForAll'
 
 const socials = [
   {
@@ -64,7 +64,23 @@ const About = () => {
         </div>
       </section>
       <section className={`custom-container py-[60px] flex flex-col gap-4 ${mulish.className}`}>
-        <div className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'>
+        <motion.div
+          className='bg-main/[0.03] p-4 border rounded-[10px] flex flex-col gap-2'
+          initial={{
+            y: 50,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 0.5,
+            },
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <TextSubtitle className={'!text-black text-start'}>{t('about.info1')}</TextSubtitle>
           <TextSubtitle className={'!text-black text-start'}>{t('about.info2')}</TextSubtitle>
           <ul>
@@ -93,8 +109,24 @@ const About = () => {
               </Link>
             </li>
           </ul>
-        </div>
-        <div className='p-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-[10px] flex flex-col gap-2'>
+        </motion.div>
+        <motion.div
+          className='p-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-[10px] flex flex-col gap-2'
+          initial={{
+            y: 50,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 0.5,
+            },
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <TextHeading className='text-[20px] uppercase font-semibold'>{t('about.socials.title')}</TextHeading>
           <TextSubtitle className={'!text-white text-start'}>{t('about.socials.desc')}</TextSubtitle>
           <ul className='flex flex-row items-center gap-1'>
@@ -108,7 +140,7 @@ const About = () => {
               )
             })}
           </ul>
-        </div>
+        </motion.div>
       </section>
     </LayoutForAll>
   )

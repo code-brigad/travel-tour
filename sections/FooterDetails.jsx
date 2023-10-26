@@ -21,20 +21,20 @@ const FooterDetails = () => {
                   Travel House
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <IconLocation fatherClass={"!fill-black"} />
                 <Link href={"https://yandex.uz/maps/-/CDaVAToy"}>
                   Toshkent, Bekobod
                 </Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <IconTelegram
                   fatherClass={"fill-black"}
                   childClass={"!stroke-black"}
                 />
                 <Link href={"tel:+998909993023"}>+998 90 999 30 23</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Mail childClass={"!stroke-black"} />
                 <Link href={"mailto:yordam@tour-house.uz"}>
                   yordam@tour-house.uz
@@ -49,16 +49,16 @@ const FooterDetails = () => {
                   Sahifalar
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/direction"}>Tur paketlar</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/special"}>Maxsus tur paketlar</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/location"}>Joylashuv</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/about"}>Kompaniya haqida</Link>
               </li>
             </ul>
@@ -70,13 +70,13 @@ const FooterDetails = () => {
                   Ijtimoiy Tarmoqlar
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={""}>Telegram</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={""}>Instagram</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={""}>YouTube</Link>
               </li>
             </ul>
@@ -88,10 +88,10 @@ const FooterDetails = () => {
                   Yordam
                 </TextSubtitle>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/direction"}>Yordam Markazi</Link>
               </li>
-              <li className="flex flex-row items-center gap-2 hover:text-main w-fit">
+              <li className="flex flex-row items-center gap-2 hover:text-secondary w-fit">
                 <Link href={"/view/special"}>Administrator</Link>
               </li>
             </ul>

@@ -82,7 +82,23 @@ const Special = () => {
             : <ul className="w-full flex flex-col gap-8">
               {packages.filter((e) => e.type == "special")?.map((data) => {
                 return (
-                  <li key={data.id}>
+                  <motion.li
+                    key={data.id}
+                    initial={{
+                      y: 50,
+                      opacity: 0,
+                    }}
+                    whileInView={{
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        type: "spring",
+                        bounce: 0.4,
+                        duration: 0.5,
+                      },
+                    }}
+                    viewport={{ once: true, amount: 0.4 }}
+                  >
                     <div className="cursor-pointer w-full h-auto">
                       <Link
                         href={{
@@ -125,7 +141,7 @@ const Special = () => {
                         )}
                       </TextSubtitle>
                     </div>
-                  </li>
+                  </motion.li>
                 );
               })}
             </ul>

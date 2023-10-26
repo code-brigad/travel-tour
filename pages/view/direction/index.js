@@ -34,11 +34,26 @@ const Direction = () => {
       setIsError(true);
     }
   };
-  console.log(packages);
 
   useEffect(() => {
     getPackages();
   }, []);
+
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  };
 
   return (
     <LayoutForAll>
@@ -82,10 +97,28 @@ const Direction = () => {
                 <li className='text-[14px]'><TextSubtitle className={'!text-black'}>{t('direction.reason2')}</TextSubtitle></li>
               </ul>
             </div>
-            : <ul className="w-full flex flex-col gap-8">
+            : <ul
+              className="w-full flex flex-col gap-8"
+            >
               {packages?.map((data) => {
                 return (
-                  <li key={data.id}>
+                  <motion.li
+                    key={data.id}
+                    initial={{
+                      y: 50,
+                      opacity: 0,
+                    }}
+                    whileInView={{
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        type: "spring",
+                        bounce: 0.4,
+                        duration: 0.5,
+                      },
+                    }}
+                    viewport={{ once: true, amount: 0.4 }}
+                  >
                     <div className="cursor-pointer w-full h-auto">
                       <Link
                         href={{
@@ -128,7 +161,7 @@ const Direction = () => {
                         )}
                       </TextSubtitle>
                     </div>
-                  </li>
+                  </motion.li>
                 );
               })}
             </ul>

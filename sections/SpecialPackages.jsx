@@ -33,11 +33,19 @@ const SpecialPackages = () => {
   }, []);
 
   if (isLoading) {
-    return <Loading />
+    return (
+      <section className="max-w-[1100px] px-4 -translate-x-1/2 relative left-[50%]">
+        <Loading />
+      </section>
+    );
   }
 
   if (isError) {
-    return <Error />;
+    return (
+      <section className="max-w-[1100px] px-4 -translate-x-1/2 relative left-[50%]">
+        <Error />
+      </section>
+    );
   }
 
   return (

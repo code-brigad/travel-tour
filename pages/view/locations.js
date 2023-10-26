@@ -44,7 +44,23 @@ const Locations = () => {
         </div>
       </section>
       <section className={`py-[60px] custom-container flex md:flex-row flex-col gap-3 md:h-[400px] h-[800px] ${mulish.className}`}>
-        <div className='flex flex-col gap-1 w-full md:h-full h-[200px] bg-main/[0.03] border rounded-[10px]'>
+        <motion.div
+          className='flex flex-col gap-1 w-full md:h-full h-[200px] bg-main/[0.03] border rounded-[10px]'
+          initial={{
+            y: 50,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 0.5,
+            },
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <TextHeading className={'p-2'}>{t('locations.location')}</TextHeading>
           <div className='w-full border-b'></div>
           <div className='p-2 flex flex-col gap-2'>
@@ -52,7 +68,7 @@ const Locations = () => {
             <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('locations.phone')}</span>: <Link href="tel: +998909993023">+998 90 999 30 23</Link></TextSubtitle>
             <TextSubtitle className={'text-start !text-black'}><span className='text-main'>{t('about.info6')}:</span> yordam@tour-house.uz</TextSubtitle>
           </div>
-        </div>
+        </motion.div>
         <YMaps>
           <div className='rounded-[10px] h-full overflow-hidden border w-full'>
             <Map className='!w-full h-full' defaultState={{ center: [40.217701, 69.265799], zoom: 12, controls: [] }}>

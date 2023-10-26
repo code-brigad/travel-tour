@@ -49,15 +49,27 @@ const SimplePackages = () => {
   };
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <section className="max-w-[1100px] px-4 -translate-x-1/2 relative left-[50%]">
+        <Loading />
+      </section>
+    );
   }
 
   if (isError) {
-    return <Error />;
+    return (
+      <section className="max-w-[1100px] px-4 -translate-x-1/2 relative left-[50%]">
+        <Error />
+      </section>
+    );
   }
 
   if (packages.length == 0) {
-    return <NoData />;
+    return (
+      <section className="max-w-[1100px] px-4 -translate-x-1/2 relative left-[50%]">
+        <NoData />
+      </section>
+    );
   }
 
   return (

@@ -3,6 +3,7 @@ import { TextSubtitle } from '@/theme/Text';
 import { IconLoading, IconMoney, IconTelegram, IconWarning } from '@/icons';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { SellModal } from '@/components';
 import Head from 'next/head';
 import Image from 'next/image';
 import Plane from '@/icons/Plane';
@@ -11,7 +12,6 @@ import Link from 'next/link';
 import LayoutForDetails from '@/components/LayoutForDetails';
 import formatMoney from '@/layouts/formatMoney';
 import moment from 'moment';
-import { SellModal } from '@/components';
 
 const OpenDirection = () => {
   const router = useRouter()
